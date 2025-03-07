@@ -10,18 +10,19 @@ import { UserSidebar } from './components/layouts/UserSidebar'
 import { Route, Routes } from 'react-router-dom'
 import Login from './components/common/Login'
 import Signup from './components/common/Signup'
-// simport { AddProduct } from './components/vendor/AddProduct'
-import { UserDashboard } from './components/users/UserDashboard'
-import { UserProfile } from './components/users/UserProfile'
 import PrivateRoutes from './components/hooks/PrivateRoutes'
+
 import axios from 'axios'
-//import Home from './components/layouts/Home'
+import Rsidebar from './components/Restuarant/Rsidebar'
+import Adminsidebar from './components/admin/Adminsidebar'
+import Rlogin from './components/Restuarant/Rlogin';
+import Alogin from './components/admin/Alogin';
+import Rsignup from './components/Restuarant/Rsignup'
 
 
 
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
-  // const [count, setCount] = useState(0)
 
   return (
     <>
@@ -32,13 +33,21 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
 
           <Route element={<PrivateRoutes />}>
+          
             <Route path="/user" element={<UserSidebar />}>
-              <Route path='home' element={<Home/>}></Route>
-              <Route path="dashboard" element={<UserDashboard />}></Route>
-              <Route path="profile" element={<UserProfile />}></Route>
+              
             </Route>
-
             
+            <Route path='/restaurant' element={<Rsidebar />}>
+              <Route path='rsignup' element={<Rsignup />} />
+          </Route>
+
+          <Route path='rlogin' element={<Rlogin />} />
+
+          <Route path='/admin' element={<Adminsidebar />}>
+            <Route path='alogin' element={<Alogin />} />
+            {/* <Route path='asignup' element={<UserSignup />} /> */}
+          </Route>
           </Route>
         </Routes>
       </div>
@@ -47,4 +56,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

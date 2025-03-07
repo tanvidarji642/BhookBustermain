@@ -319,6 +319,12 @@ body {
   color: var(--primary-color);
 }
 
+.form-group-radio {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+
+}
 .form-group input,
 .form-group select {
   padding: 0.75rem 1rem;

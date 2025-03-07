@@ -127,7 +127,7 @@ const Signup = () => {
 
             <div className="form-group">
               <label>Gender</label>
-              <div>
+              <div className="form-group-radio">
                 <label htmlFor="male">
                   <input
                     type="radio"
