@@ -1,0 +1,22 @@
+.home {
+    padding-top: 64px; /* Navbar height */
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: var(--gray-light);
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto;
+  }
