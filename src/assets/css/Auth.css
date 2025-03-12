@@ -1,7 +1,7 @@
 /* auth.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-/* 
-:root {
+
+/* :root {
   --primary-color: #097891;
   --primary-hover: #4b9ba9;
   --secondary-color: #111111;
@@ -16,9 +16,11 @@
   --glow: 0 0 20px #097891;
   --transition: all 0.3s ease;
   --general-text-color:#ffffff;
+  --font-family: "Poppins", sans-serif;
+
 } */
 
-/* :root {
+:root {
   --primary-color: #ff7300; 
   --primary-hover: #ff8c42; 
   --secondary-color: #1b1b1b; 
@@ -34,11 +36,11 @@
   --transition: all 0.3s ease-in-out;
   --general-text-color: #ffffff;
   --font-family: "Poppins", sans-serif;
-} */
+}
 
-:root {
-  --primary-color: #E9A825; /* Gold Accent */
-  --primary-hover: #FFC75F; /* Lighter Gold Hover */
+/* :root {
+  --primary-color: #E9A825; 
+  --primary-hover: #FFC75F; 
   --secondary-color: #2C1A0C; 
   --text-color: #FAF3E0; 
   --input-bg: rgba(255, 255, 255, 0.15); 
@@ -52,7 +54,7 @@
   --transition: all 0.3s ease-in-out;
   --general-text-color: #ffffff;
   --font-family: "Poppins", sans-serif;
-}
+} */
 
 * {
   margin: 0;

@@ -204,6 +204,18 @@ const Signup = () => {
               {errors.status && <p className="error-message">{errors.status.message}</p>}
             </div>
 
+            {/* <div className="form-group">
+              <label htmlFor="image">Upload Image</label>
+              <input
+                type="file"
+                id="image"
+                {...register("image", { required: "Image is required" })}
+                className={errors.profilePicPath ? "input-error" : ""}
+              />
+              {errors.profilePicPath && <p className="error-message">{errors.profilePicPath.message}</p>}
+            </div> */}
+            
+
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input

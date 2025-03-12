@@ -18,6 +18,10 @@ import Adminsidebar from './components/admin/Adminsidebar'
 import Rlogin from './components/Restuarant/Rlogin';
 import Alogin from './components/admin/Alogin';
 import Rsignup from './components/Restuarant/Rsignup'
+import { AddOffer } from './components/Restuarant/AddOffer'
+import LocationForm from "./components/Restuarant/LocationForm";
+import LandingPage from './components/common/LandingPage'
+
 
 
 
@@ -31,22 +35,28 @@ function App() {
       <Routes>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path='/' element={<LandingPage />} />
 
           <Route element={<PrivateRoutes />}>
           
             <Route path="/user" element={<UserSidebar />}>
-              
+            <Route path="locationform" element={<LocationForm  />} />
+            <Route path='addoffer' element={<AddOffer />}></Route>
+
+               
             </Route>
             
             <Route path='/restaurant' element={<Rsidebar />}>
-              <Route path='rsignup' element={<Rsignup />} />
+            <Route path='rlogin' element={<Rlogin />} />
+              <Route path='rsignup' element={<Signup />} />
+
           </Route>
 
-          <Route path='rlogin' element={<Rlogin />} />
+          {/* <Route path='rlogin' element={<Rlogin />} /> */}
 
           <Route path='/admin' element={<Adminsidebar />}>
             <Route path='alogin' element={<Alogin />} />
-            {/* <Route path='asignup' element={<UserSignup />} /> */}
+            <Route path='asignup' element={<Signup />} />
           </Route>
           </Route>
         </Routes>

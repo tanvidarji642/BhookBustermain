@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #ff7300;
+    --primary-hover: #ff8c42;
+    --secondary-color: #1b1b1b;
+    --text-color: #fdfdfd;
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --card-bg: rgba(30, 30, 30, 0.9);
+    --light-text: #e0e0e0;
+    --border-color: rgba(255, 115, 0, 0.5);
+    --error-color: #ff4f4f;
+    --success-color: #28c76f;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --glow: 0 0 12px #ff7300;
+    --transition: all 0.3s ease-in-out;
+    --font-family: "Poppins", sans-serif;
+  }
+  
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+ }
+
+ .auth-container {
+    display: flex;
+    width: 100vw; /* Ensure full width */
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    /* background-image: linear-gradient(#a8dfeb, #ffffff) !important; */
+    background-color: var(--secondary-color);
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(50, 50, 50, 0.8) 0%, rgba(0, 0, 0, 0.8) 90%),
+      repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05) 0px, rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 10px);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  .auth-form-container {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2.5rem;
+    /* background-color: var(--card-bg); */
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    position: relative;
+    border: 1px solid rgba(255, 107, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+  }
+  
+  .form-group-radio {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  
+  }
+  .form-group input,
+  .form-group select {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--text-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: var(--transition);
+    /* background-color: var(--input-bg);
+    color: var(--text-color); */
+    background-color: rgb(255 255 255);
+      color: var(--secondary-color);
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgb(9 120 145 / 61%);
+  }
