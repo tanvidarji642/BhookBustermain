@@ -1,6 +1,7 @@
 import React from 'react'
-import { UserNavbar } from './UserNavbar'
 import { Outlet } from 'react-router-dom'
+import UserNavbar from '../layouts/UserNavbar';
+import { Link } from 'react-router-dom';
 
 export const UserSidebar = () => {
   return (
@@ -44,13 +45,13 @@ export const UserSidebar = () => {
               data-accordion="false"
             >
               <li className="nav-item menu-open">
-                <a href="#" className="nav-link active">
+                <Link to="/user/locationform" className="nav-link active">
                   <i className="nav-icon bi bi-speedometer" />
                   <p>
                     ADD PRODUCT
                     <i className="nav-arrow bi bi-chevron-right" />
                   </p>
-                </a>
+                </Link>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
                     <a href="./index.html" className="nav-link active">

@@ -4,6 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import '../../assets/css/LocationForm.css'
 
 const RestaurantRegistration = () => {
   const navigate = useNavigate();
