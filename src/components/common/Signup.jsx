@@ -10,6 +10,19 @@ const Signup = () => {
   const navigate = useNavigate();
   // const [showPassword, setShowPassword] = useState(false);
   const [animating, setAnimating] = useState(false);
+  const [profilePic, setProfilePic] = useState(null);
+  const [formData, setFormData] = useState({
+    // userId: uuidv4(), // Generate unique user ID
+    firstname: '',
+    lastname: '',
+    gender: '',
+    contact: '',
+    email: '',
+    password: '',
+    age: '',
+    profilePicPath: '',
+    role: 'user'
+  });
 
   const { 
     register, 
@@ -24,8 +37,63 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    
+    if (name === 'profilePic') {
+      const file = files[0];
+      setProfilePic(file);
+      
+      // Create a file reader to get the file path
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData(prev => ({
+          ...prev,
+          profilePicPath: reader.result
+        }));
+      };
+      
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+  };
 
   const onSubmit = async (data) => {
+
+    console.log(data)
+    console.log(data.profilePic[0])
+    
+    const formData = new FormData()
+    formData.append("firstname",data.firstname)
+    formData.append("lastname",data.lastname)
+    formData.append("gender",data.gender) 
+    formData.append("contact",data.contact)
+    formData.append("email",data.email)
+    formData.append("password",data.password)
+    formData.append("confirm_password",data.confirm_password)
+    formData.append("age",data.age)
+    formData.append("profilePic",data.profilePic[0])
+    formData.append("role",data.role)
+    formData.append("status",data.status)
+    // formData.append("image",data.image[0])
+
+
+    const res = await axios.post("/create_product_file",formData,{
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    })
+    console.log(res.data)//axios variable....
+    // console.log(data.profilePic[0])
+    // console.log(data.profilePic[0].name)
+
+
     console.log('Signup submitted:', data);
 
     data.role_id = "67beb40ae44bac5f3f079e11";
@@ -64,7 +132,7 @@ const Signup = () => {
 
 
   return (
-    <div className={`auth-container ${animating ? 'slide-left' : ''}`}>
+    <div className={`auth-container ${animating ? 'slide-left' : ''}  `}>
       <div className="auth-left">
         <div className="auth-welcome">
           {/* <h1>Create Account</h1> */}
@@ -104,6 +172,9 @@ const Signup = () => {
                   } 
                 })}
                 className={errors.firstname ? "input-error" : ""}
+                name="firstname"
+                value={formData.firstname}
+                onChange={handleChange}
               />
               {errors.firstname && <p className="error-message">{errors.firstname.message}</p>}
             </div>
@@ -120,12 +191,15 @@ const Signup = () => {
                     value: 2, message: "Name must be at least 2 characters" 
                   } 
                 })}
-                className={errors.lastname ? "input-error" : ""} 
+                className={errors.lastname ? "input-error" : ""}
+                name="lastname"
+                value={formData.lastname}
+                onChange={handleChange} 
               />
               {errors.lastname && <p className="error-message">{errors.lastname.message}</p>}
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <label>Gender</label>
               <div className="form-group-radio">
                 <label htmlFor="male">
@@ -157,10 +231,27 @@ const Signup = () => {
                 </label>
               </div>
               {errors.gender && <p className="error-message">{errors.gender.message}</p>}
+            </div> */}
+
+            <div className="form-group">
+              <label htmlFor="gender">Gender</label>
+              <select 
+                {...register("gender", { required: "Please select your gender" })}
+                className={errors.gender ? "input-error" : ""}
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+              >
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              {errors.gender && <p className="error-message">{errors.gender.message}</p>}
             </div>
 
             <div className="form-group">
-              <label htmlFor="contact">Contact</label>
+              <label htmlFor="contact">Contact Number</label>
               <input
                 type="text"
                 id="contact"
@@ -173,11 +264,14 @@ const Signup = () => {
                   }
                 })}
                 className={errors.contact ? "input-error" : ""}
+                name="contact"
+                value={formData.contact}
+                onChange={handleChange}
               />
               {errors.contact && <p className="error-message">{errors.contact.message}</p>}
             </div>
           
-
+{/* 
             <div className="form-group">
               <label htmlFor="age">Age</label>
               <input
@@ -188,6 +282,51 @@ const Signup = () => {
                 className={errors.age ? "input-error" : ""}
               />
               {errors.age && <p className="error-message">{errors.age.message}</p>}
+            </div> */}
+
+            <div className="form-group">
+              <label htmlFor="age">Age</label>
+              <input
+                type="number"
+                placeholder="Enter your age"
+                {...register("age", { 
+                  required: "Age is required",
+                  min: {
+                    value: 18,
+                    message: "You must be at least 18 years old"
+                  },
+                  max: {
+                    value: 120,
+                    message: "Please enter a valid age"
+                  }
+                })}
+                className={errors.age ? "input-error" : ""}
+                name="age"
+                value={formData.age}
+                onChange={handleChange}
+              />
+              {errors.age && <p className="error-message">{errors.age.message}</p>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="profilePic">Profile Picture</label>
+              <input
+                type="file"
+                accept="image/*"
+                name="profilePic"
+                {...register("profilePic", { required: "Profile picture is required" })}
+                onChange={handleChange}
+                className={errors.profilePic ? "input-error" : ""}
+              />
+              {profilePic && (
+                <div className="profile-preview">
+                  <img 
+                    src={URL.createObjectURL(profilePic)} 
+                    alt="Profile Preview" 
+                    className="preview-image"
+                  />
+                </div>
+              )}
             </div>
 
 

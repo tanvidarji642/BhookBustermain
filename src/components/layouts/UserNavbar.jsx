@@ -249,6 +249,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../assets/css/adminlte.min.css';
+import '../../assets/css/Theme.css'
 
 const UserNavbar = () => {
   // Theme state management

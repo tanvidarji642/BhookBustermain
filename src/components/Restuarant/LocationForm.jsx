@@ -5,20 +5,22 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/css/LocationForm.css'
+// import '../../assets/css/Theme.css'
 
 const RestaurantRegistration = () => {
   const navigate = useNavigate();
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
   const [areas, setAreas] = useState([]);
-  const [selectedState, setSelectedState] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
+  // const [selectedState, setSelectedState] = useState('');
+  // const [selectedCity, setSelectedCity] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
 
   useEffect(() => {
     getAllStates();
   }, []);
+
 
   const getAllStates = async () => {
     const res = await axios.get("/getStates");
@@ -88,7 +90,7 @@ const RestaurantRegistration = () => {
       data.userId = localStorage.getItem('id');
       
       setIsLoading(true);
-      const response = await axios.post('/location/add', data);
+      const response = await axios.post('/location/', data);
       //data.roleId=
       if (response.status === 201) {
         toast.success('Restaurant registered successfully!');
@@ -207,12 +209,14 @@ const RestaurantRegistration = () => {
                 onChange={(e) => getCityByStateId(e.target.value)}
               >
                 <option value="">Select State</option>
-                {states.map((state) => (
+                {states?.map((state) => (
                   <option key={state._id} value={state._id}>{state.name}</option>
                 ))}
               </select>
-              {errors.stateId && <p className="error-message">{errors.stateId.message}</p>}
+      
+              {errors?.stateId && <p className="error-message">{errors.stateId.message}</p>}
             </div>
+          </div>
             
             <div className="form-group">
               <label htmlFor="cityId">City</label>
@@ -231,20 +235,17 @@ const RestaurantRegistration = () => {
               </select>
               {errors.cityId && <p className="error-message">{errors.cityId.message}</p>}
             </div>
-          </div>
           
           <div className="form-group">
             <label htmlFor="areaId">Area</label>
             <select
               id="areaId"
               {...register("areaId")}
-              
-
               // disabled={!selectedCity}
             >
               <option value="">Select Area (Optional)</option>
               {areas?.map((area) => (
-                    <option key={area._id} value={area._id}>{area.name}</option>
+                    <option key={area._id} value={area._id}>{area.areaName}</option>
                   ))}
             </select>
           </div>
