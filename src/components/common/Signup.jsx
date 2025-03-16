@@ -33,7 +33,8 @@ const Signup = () => {
 
   const password = React.useRef({});
   password.current = watch("password", "");
-
+  
+  const [action, setAction] = useState("Sign Up");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -84,24 +85,24 @@ const Signup = () => {
     // formData.append("image",data.image[0])
 
 
-    const res = await axios.post("/create_product_file",formData,{
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
-    })
-    console.log(res.data)//axios variable....
+    // const res = await axios.post("/create_product_file",formData,{
+    //     headers: {
+    //         "Content-Type": "multipart/form-data",
+    //     },
+    // })
+    // console.log(res.data)//axios variable....
     // console.log(data.profilePic[0])
     // console.log(data.profilePic[0].name)
 
 
-    console.log('Signup submitted:', data);
+    // console.log('Signup submitted:', data);
 
-    data.role_id = "67beb40ae44bac5f3f079e11";
+    formData.role_id = "67bebf0677d0c62099b63e3e";
     data.status = data.status === "true" || data.status === true;
     console.log("formData...", data);
 
     try {
-      const res = await axios.post("http://localhost:8000/user/", data, { 
+      const res = await axios.post("/user/", data, { 
         headers: {
           'Content-Type': 'application/json'
         }
@@ -114,6 +115,14 @@ const Signup = () => {
       } else {
         toast.error('Signup failed');
       }
+
+      setTimeout(() => {
+       
+        navigate('/login');
+        handleLoginTransition();
+      }, 1500);
+
+      
     } catch (error) {
       if (error.response && error.response.status === 422) {
         toast.error('Invalid data. Please check your input.');
@@ -157,7 +166,7 @@ const Signup = () => {
           <div className="glow-effect"></div>
           <h2>Sign Up</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
-            
+             {/* First Name */}
             <div className="form-group">
               <label htmlFor="firstname">First Name</label>
               <input
@@ -178,7 +187,7 @@ const Signup = () => {
               />
               {errors.firstname && <p className="error-message">{errors.firstname.message}</p>}
             </div>
-
+            {/* Last Name */}
             <div className="form-group">
               <label htmlFor="lastname">Last Name</label>
               <input
@@ -198,7 +207,7 @@ const Signup = () => {
               />
               {errors.lastname && <p className="error-message">{errors.lastname.message}</p>}
             </div>
-
+            {/* Gender */}
             {/* <div className="form-group">
               <label>Gender</label>
               <div className="form-group-radio">
@@ -232,7 +241,6 @@ const Signup = () => {
               </div>
               {errors.gender && <p className="error-message">{errors.gender.message}</p>}
             </div> */}
-
             <div className="form-group">
               <label htmlFor="gender">Gender</label>
               <select 
@@ -249,7 +257,7 @@ const Signup = () => {
               </select>
               {errors.gender && <p className="error-message">{errors.gender.message}</p>}
             </div>
-
+            {/* Contact Number */}
             <div className="form-group">
               <label htmlFor="contact">Contact Number</label>
               <input
@@ -270,20 +278,7 @@ const Signup = () => {
               />
               {errors.contact && <p className="error-message">{errors.contact.message}</p>}
             </div>
-          
-{/* 
-            <div className="form-group">
-              <label htmlFor="age">Age</label>
-              <input
-                type="number"
-                id="age"
-                placeholder="Enter your age"
-                {...register("age", { required: "Age is required" })}
-                className={errors.age ? "input-error" : ""}
-              />
-              {errors.age && <p className="error-message">{errors.age.message}</p>}
-            </div> */}
-
+            {/* Age */}
             <div className="form-group">
               <label htmlFor="age">Age</label>
               <input
@@ -307,7 +302,7 @@ const Signup = () => {
               />
               {errors.age && <p className="error-message">{errors.age.message}</p>}
             </div>
-
+            {/* Profile Picture */}
             <div className="form-group">
               <label htmlFor="profilePic">Profile Picture</label>
               <input
@@ -328,9 +323,7 @@ const Signup = () => {
                 </div>
               )}
             </div>
-
-
-
+            {/* Status */}
             <div className="form-group">
               <label htmlFor="status">Status</label>
               <input
@@ -342,19 +335,7 @@ const Signup = () => {
               />
               {errors.status && <p className="error-message">{errors.status.message}</p>}
             </div>
-
-            {/* <div className="form-group">
-              <label htmlFor="image">Upload Image</label>
-              <input
-                type="file"
-                id="image"
-                {...register("image", { required: "Image is required" })}
-                className={errors.profilePicPath ? "input-error" : ""}
-              />
-              {errors.profilePicPath && <p className="error-message">{errors.profilePicPath.message}</p>}
-            </div> */}
-            
-
+            {/* Email */}
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
@@ -372,7 +353,7 @@ const Signup = () => {
               />
               {errors.email && <p className="error-message">{errors.email.message}</p>}
             </div>
-
+            {/* Password */}
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <div className="password-input-wrapper">
@@ -403,7 +384,7 @@ const Signup = () => {
               </div>
               {errors.password && <p className="error-message">{errors.password.message}</p>}
             </div>
-            
+            {/* Confirm Password */}
             <div className="form-group">
               <label htmlFor="confirm_password">Confirm Password</label>
               <div className="password-input-wrapper">
@@ -427,7 +408,7 @@ const Signup = () => {
               </div>
               {errors.confirm_password && <p className="error-message">{errors.confirm_password.message}</p>}
             </div>
-            
+            {/* Role Select */}
             <div className="form-group">
               <label htmlFor="role">Role</label>
               <select 

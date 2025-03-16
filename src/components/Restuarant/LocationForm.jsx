@@ -90,7 +90,7 @@ const RestaurantRegistration = () => {
       data.userId = localStorage.getItem('id');
       
       setIsLoading(true);
-      const response = await axios.post('/location/', data);
+      const response = await axios.post('/locations/', data);
       //data.roleId=
       if (response.status === 201) {
         toast.success('Restaurant registered successfully!');

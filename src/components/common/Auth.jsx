@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import UserLogin from '../common/UserLogin';
-import UserSignup from '../common/UserSignup';
+import './Auth.css';
+import Login from './Login';
+import Signup from './Signup';
 function AuthPage() {
   const [showLogin, setShowLogin] = useState(true);
   
