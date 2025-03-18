@@ -90,6 +90,7 @@ import { AddOffer } from "./components/Restuarant/AddOffer";
 import LocationForm from "./components/Restuarant/LocationForm";
 import LandingPage from "./components/Landing page/LandingPage";
 import axios from "axios";
+import PartnerWithus from "./components/Restuarant/Partnerwithus";
 
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
@@ -102,6 +103,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<LandingPage />} />
+            <Route path="partnerwithus" element={<PartnerWithus />} />
 
             <Route element={<PrivateRoutes />}>
               <Route path="/user" element={<UserSidebar />}>

@@ -294,7 +294,7 @@ const UserNavbar = () => {
       </div>
       
       <div className="navbar-right">
-      <Link to="/rsignup">Partner with us</Link> 
+      <Link to="./partnerwithus">Partner with us</Link> 
         <button 
           onClick={toggleTheme} 
           className="theme-toggle"
