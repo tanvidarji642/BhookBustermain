@@ -88,7 +88,7 @@ import Alogin from "./components/admin/Alogin";
 import Rsignup from "./components/Restuarant/Rsignup";
 import { AddOffer } from "./components/Restuarant/AddOffer";
 import LocationForm from "./components/Restuarant/LocationForm";
-import LandingPage from "./components/common/LandingPage";
+import LandingPage from "./components/Landing page/LandingPage";
 import axios from "axios";
 
 function App() {
@@ -113,7 +113,7 @@ function App() {
                 <Route path="rlogin" element={<Rlogin />} />
                 <Route path="rsignup" element={<Rsignup />} />
               </Route>
-
+              
               <Route path="/admin" element={<Adminsidebar />}>
                 <Route path="alogin" element={<Alogin />} />
                 <Route path="asignup" element={<Signup />} />

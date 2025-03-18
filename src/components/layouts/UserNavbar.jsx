@@ -280,20 +280,21 @@ const UserNavbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-left">
+      {/* <div className="navbar-left">
         <Link to="/">Home</Link>
         <Link to="/about">About Us</Link>
         <Link to="/menu">Menu</Link>
         <Link to="/offers">Special Offers</Link>
-      </div>
+      </div> */}
       
       <div className="navbar-center">
         <Link to="/">
-          <img src={""} alt="BHOOKBUSTER" className="navbar-logo" />
+          <img src={"/assets/items/logo.png"} alt="BHOOKBUSTER" className="navbar-logo" />
         </Link>
       </div>
       
       <div className="navbar-right">
+      <Link to="/rsignup">Partner with us</Link> 
         <button 
           onClick={toggleTheme} 
           className="theme-toggle"
@@ -310,8 +311,8 @@ const UserNavbar = () => {
         >
           {darkMode ? '☀️ Light' : '🌙 Dark'}
         </button>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="login">Login</Link>
+        <Link to="signup">Sign Up</Link>
       </div>
     </nav>
   );

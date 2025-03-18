@@ -14,14 +14,13 @@ export const UserSidebar = () => {
         <div className="sidebar-brand">
           <a href="./index.html" className="brand-link">
             <img
-              src="../../dist/assets/img/AdminLTELogo.png"
-              alt="AdminLTE Logo"
+              src="/assets/items/logo.png"
+              alt="Logo"
               className="brand-image opacity-75 shadow"
             />
-            <span className="brand-text fw-light">AdminLTE 4</span>
+            <span className="brand-text fw-light"> </span>
           </a>
         </div>
-
         <div
           className=""
           data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll"
@@ -45,30 +44,30 @@ export const UserSidebar = () => {
               data-accordion="false"
             >
               <li className="nav-item menu-open">
-                <Link to="/user/locationform" className="nav-link active">
+                <a href="#" className="nav-link active">
                   <i className="nav-icon bi bi-speedometer" />
                   <p>
-                    ADD PRODUCT
+                    Dashboard
                     <i className="nav-arrow bi bi-chevron-right" />
                   </p>
-                </Link>
+                </a>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
-                    <a href="./index.html" className="nav-link active">
+                    <Link to="./locationform" className="nav-link active">
                       <i className="nav-icon bi bi-circle" />
-                      <p>Dashboard v1</p>
-                    </a>
+                      <p>ADD Restaurant</p>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="./index2.html" className="nav-link">
+                    <a href="./addoffer" className="nav-link">
                       <i className="nav-icon bi bi-circle" />
-                      <p>Dashboard v2</p>
+                      <p>ADD Offers</p>
                     </a>
                   </li>
                   <li className="nav-item">
                     <a href="./index3.html" className="nav-link">
                       <i className="nav-icon bi bi-circle" />
-                      <p>Dashboard v3</p>
+                      <p>View Offers</p>
                     </a>
                   </li>
                 </ul>
@@ -76,14 +75,14 @@ export const UserSidebar = () => {
               <li className="nav-item">
                 <a href="./generate/theme.html" className="nav-link">
                   <i className="nav-icon bi bi-palette" />
-                  <p>Theme Generate</p>
+                  <p>VIEW ALL OFFERS</p>
                 </a>
               </li>
               <li className="nav-item">
                 <a href="#" className="nav-link">
                   <i className="nav-icon bi bi-box-seam-fill" />
                   <p>
-                    Widgets
+                  
                     <i className="nav-arrow bi bi-chevron-right" />
                   </p>
                 </a>
@@ -112,8 +111,8 @@ export const UserSidebar = () => {
           </nav>
         </div>
       </aside>
-      <main className='app-main'>
-        <Outlet></Outlet>
+      <main className="app-main">
+        <Outlet />
       </main>
       </>
   )
