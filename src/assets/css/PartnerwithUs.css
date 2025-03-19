@@ -27,7 +27,7 @@
     overflow: hidden;
   } */
   .hero-section {
-    background-image: url("https://res.cloudinary.com/demo/image/upload/sample.jpg");
+    /* background-image: url("https://res.cloudinary.com/demo/image/upload/sample.jpg"); */
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -109,7 +109,7 @@
     background: var(--primary-hover);
   }
  
-  .steps-section {
+  /* .steps-section {
     text-align: center;
     padding: 40px;
     background: var(--secondary-color);
@@ -192,8 +192,8 @@
   .apply-link:hover {
     color: var(--primary-hover);
     text-decoration: underline;
-  }
-/* 
+  } */
+ 
    .steps-container {
     display: flex;
     gap: 40px;
@@ -361,4 +361,4 @@
     .documents-section {
       max-width: 100%;
     }
-  } */
+  } 

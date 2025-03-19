@@ -4,10 +4,14 @@
   align-items: center;
   background-color: transparent;
   padding: 1rem 2rem;
-  /* box-shadow: var(--shadow); */
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.navbar.scrolled {
+  background-color: var(--secondary-color);
+  box-shadow: var(--shadow);
 }
 
 .navbar-left, 
@@ -69,10 +73,27 @@
 }
 
 @media (max-width: 768px) {
-  .navbar {
+  /* .navbar {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
+    position: static;
+  } */
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+    background: transparent; /* Default: Transparent */
+  }
+  
+  .navbar.scrolled {
+    background-color: rgba(17, 17, 17, 0.9); /* Dark background on scroll */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
   
   .navbar-left, 

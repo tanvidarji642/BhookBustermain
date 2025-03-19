@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 // Import the CSS file
-import '../../assets/css/Hero.css';
+// import '../../assets/css/Hero.css';
 
 const Hero = () => {
   return (

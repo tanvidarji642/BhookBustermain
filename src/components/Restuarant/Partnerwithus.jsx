@@ -1,13 +1,15 @@
 import React from "react";
 import { FaInfoCircle } from "react-icons/fa";
 import '../../assets/css/PartnerWithUs.css';
+import images from '../../assets/images/spaghetti.jpg';
 
 const PartnerWithUs = () => {
   return (
     <div className="partner-container">
       {/* Hero Section */}
       <div className="hero-section">
-        <img src="https://res.cloudinary.com/demo/image/upload/sample.jpg" alt="Food Image" className="hero-image" />
+        {/* <img src="https://res.cloudinary.com/demo/image/upload/sample.jpg" alt="Food Image" className="hero-image" /> */}
+        <img src={images} alt="Food Image" className="hero-image" />
         <div className="hero-overlay">
           <h2>Partner with BHookhBuster!</h2>
           <p>Increase your online Offers</p>
@@ -27,7 +29,7 @@ const PartnerWithUs = () => {
       </div>
 
       {/* Steps Section */}
-      <div className="steps-section">
+      {/* <div className="steps-section">
         <h2>In just <span className="highlight">3 easy steps</span></h2>
         <p className="subheading">Get your restaurant delivery-ready in 24hrs!</p>
         <div className="steps-list">
@@ -35,10 +37,10 @@ const PartnerWithUs = () => {
           <div className="step"><div className="step-number">2</div> Login/Register using your phone number</div>
           <div className="step"><div className="step-number">3</div> Enter restaurant details</div>
         </div>
-      </div>
+      </div> */}
 
       {/* Document Upload Section */}
-      <div className="documents-section">
+      {/* <div className="documents-section">
         <h3>For an easy form filling process,</h3>
         <p className="subheading">You can keep these documents handy.</p>
         
@@ -68,9 +70,9 @@ const PartnerWithUs = () => {
             <p>PAN Card Copy</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
-    {/* <div className="steps-container">
+    <div className="steps-container">
       
       <div className="steps-section">
         <h2>
@@ -129,7 +131,7 @@ const PartnerWithUs = () => {
           </div>
         </div>
       </div>
-    </div> */}
+    </div>
 
     </div>
   );
