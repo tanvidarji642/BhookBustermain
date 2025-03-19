@@ -62,9 +62,10 @@ body {
   overflow: hidden;
   position: relative;
   background-color: var(--secondary-color);
-  background-image: 
+  background-image: url('../images/food.jpg') ;
+  /* background-image: 
     radial-gradient(circle at 10% 20%, rgba(50, 50, 50, 0.8) 0%, rgba(0, 0, 0, 0.8) 90%),
-    repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05) 0px, rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 10px);
+    repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05) 0px, rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 10px); */
   transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 

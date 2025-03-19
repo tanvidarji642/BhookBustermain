@@ -2,7 +2,7 @@ import React from "react";
 
 const Item = () => {
   const items = [
-    { src: "/assets/item/Biryani.jpg", alt: "Biryani" },
+    { src: "src\assets\images\Biriyani.jpg", alt: "Biryani" },
     { src: "https://res.cloudinary.com/demo/image/upload/sample.jpg", alt: "Idli" },
     { src: "/assets/item/Juice.jpg", alt: "Juice" },
     { src: "/assets/item/Pancake.jpg", alt: "Pancake" },

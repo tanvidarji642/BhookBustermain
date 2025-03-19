@@ -21,13 +21,15 @@
 
 
 /* Hero Component CSS */
+
 .hero-box {
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
     width: 100%;
-    min-height: 88vh;
+    min-height: 70vh;
+    background-image: url("../images/spaghetti.jpg");
   }
   
   .padding-y {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="hero-box padding-y">
+    <section className="hero-box">
       <div className="hero-text-wrapper">
         <article className="hero-internal-text-wrapper">
           <h1 className="hero-heading-text">You've Got Questions.</h1>

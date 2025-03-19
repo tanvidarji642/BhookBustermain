@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,12 +7,42 @@
   position: sticky;
   top: 0;
   z-index: 100;
+} */
+
+ /* .navbar.scrolled { */
+  /* background-color: var(--secondary-color);
+  box-shadow: var(--shadow); */
+  /* background-color: transparent; */
+
+/* }  */
+
+:root {
+  --navbar-bg-light: rgba(255, 255, 255, 0.8);
+  --navbar-bg-dark: rgba(0, 0, 0, 0.8);
 }
 
 .navbar.scrolled {
-  background-color: var(--secondary-color);
-  box-shadow: var(--shadow);
+  background-color: var(--navbar-bg-light); 
 }
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent !important; 
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
 
 .navbar-left, 
 .navbar-right {
@@ -88,13 +118,13 @@
     padding: 15px 20px;
     transition: background-color 0.3s ease;
     z-index: 1000;
-    background: transparent; /* Default: Transparent */
+    background: transparent; 
   }
   
-  .navbar.scrolled {
-    background-color: rgba(17, 17, 17, 0.9); /* Dark background on scroll */
+  /* .navbar.scrolled {
+    background-color: rgba(17, 17, 17, 0.9);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
+  } */
   
   .navbar-left, 
   .navbar-right {
