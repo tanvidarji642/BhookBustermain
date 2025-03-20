@@ -27,34 +27,37 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--text-color);
   background-color: var(--secondary-color);
+  overflow-x: hidden;
+  
 /* Custom Scrollbar for the form container */
-.scrollable-form {
-  max-height: 80vh;
-  overflow-y: auto;
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: var(--primary-color) rgba(17, 17, 17, 0.6); /* For Firefox */
-}
+  .scrollable-form {
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--primary-color) rgba(17, 17, 17, 0.6); /* For Firefox */
+  }
 
-/* Webkit scrollbar styling (Chrome, Safari, Edge) */
-.scrollable-form::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+  /* Webkit scrollbar styling (Chrome, Safari, Edge) */
+  .scrollable-form::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
 
-.scrollable-form::-webkit-scrollbar-track {
-  background: rgba(17, 17, 17, 0.6);
-  border-radius: 8px;
-}
+  .scrollable-form::-webkit-scrollbar-track {
+    background: rgba(17, 17, 17, 0.6);
+    border-radius: 8px;
+  }
 
-.scrollable-form::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 8px;
-  border: 2px solid rgba(17, 17, 17, 0.6);
-}
+  .scrollable-form::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 8px;
+    border: 2px solid rgba(17, 17, 17, 0.6);
+  }
 
-.scrollable-form::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-hover);
-}}
+  .scrollable-form::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
+  }
+}
 
 .auth-container {
   display: flex;

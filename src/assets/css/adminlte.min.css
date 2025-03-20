@@ -21,9 +21,9 @@
   --navbar-bg-dark: rgba(0, 0, 0, 0.8);
 }
 
-.navbar.scrolled {
+/* .navbar.scrolled {
   background-color: var(--navbar-bg-light); 
-}
+} */
 
 
 .navbar {
@@ -38,10 +38,14 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.8); 
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+.navbar scrolled {
+  background-color: var(--navbar-bg-dark);
 }
+/* .navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.8);  */
+  /* background-color: var(--navbar-bg-light); */
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+} */
 
 
 .navbar-left, 

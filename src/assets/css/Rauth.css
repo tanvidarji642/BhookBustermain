@@ -1,0 +1,235 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Root Variables for Theme */
+:root {
+  --primary-color: #ff6b00;
+  --primary-hover: #ff8800;
+  --secondary-color: #111111;
+  --text-color: #f3f3f3;
+  --input-bg: rgba(0, 0, 0, 0.4);
+  --card-bg: rgba(20, 20, 20, 0.7);
+  --border-color: rgba(255, 107, 0, 0.3);
+  --error-color: #ff4545;
+  --success-color: #28c76f;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --glow: 0 0 20px rgba(255, 107, 0, 0.6);
+  --transition: all 0.3s ease;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  overflow-x: hidden;
+}
+
+/* === Auth Container === */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: url('../images/food.jpg') no-repeat center center/cover;
+  position: relative;
+}
+
+/* === Card Wrapper === */
+.auth-card {
+  max-width: 420px;
+  width: 100%;
+  padding: 2.5rem;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 107, 0, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 107, 0, 0.15), transparent);
+  pointer-events: none;
+}
+
+.auth-card h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  margin-top: 0px;
+  margin-right: 250px;
+  text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+}
+
+/* === Form Inputs === */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* .form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary-color);
+} */
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+  outline: none;
+}
+
+/* === Password Toggle === */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.toggle-password:hover {
+  color: var(--primary-hover);
+}
+
+/* === Buttons === */
+.auth-button {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+}
+
+.auth-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+}
+
+.auth-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.auth-button:hover::before {
+  left: 100%;
+}
+
+/* === Form Links === */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.remember-me input {
+  accent-color: var(--primary-color);
+}
+
+.forgot-password {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+  color: var(--primary-hover);
+}
+
+/* === Toast Notifications === */
+.Toastify__toast {
+  font-family: 'Poppins', sans-serif;
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 107, 0, 0.1);
+  color: var(--text-color);
+}
+
+.Toastify__toast--success {
+  border-left: 4px solid var(--success-color);
+}
+
+.Toastify__toast--error {
+  border-left: 4px solid var(--error-color);
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1rem;
+  }
+  
+  .auth-card {
+    padding: 1.5rem;
+  }
+  
+  .auth-card h2 {
+    font-size: 1.75rem;
+  }
+}
+

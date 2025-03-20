@@ -6,7 +6,7 @@ const Rnav = () => {
     <nav className="app-header navbar navbar-expand bg-body">
   {/*begin::Container*/}
   <div className="container-fluid">
-  <h1> this is restuarant page </h1>
+  <h1>Restuarant</h1>
     {/*begin::Start Navbar Links*/}
     <ul className="navbar-nav">
       <li className="nav-item">

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import '../../assets/css/auth.css'  
+import '../../assets/css/Rauth.css'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -26,17 +27,17 @@ const Login = () => {
 return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>Welcome Back!</h2>
+        <h2>Login</h2>
         <form onSubmit={handleSubmit(submitHandler)} className="auth-form">
           <div className="form-group">
-            <label className="form-label">Email Address</label>
+            {/* <label className="form-label">Email Address</label> */}
             <input type="text" placeholder="Email" className="form-input" {...register("email", validationSchema.emailValidator)} /> <br />
             <span style={{ color: "red" }}>
               {errors.email?.message}
             </span>
           </div>
           <div className="form-group">
-            <label className="form-label">Password</label>
+            {/* <label className="form-label">Password</label> */}
             <input type='password' placeholder="Password" className="form-input" {...register("password", validationSchema.passwordValidator)} /><br />
             <span style={{ color: "red" }}>
               {errors.password?.message}
@@ -47,7 +48,7 @@ return (
           </button>
         </form>
         <p className="form-text">
-          Don't have an account? <Link to="/signup">Sign up</Link>
+          Don't have an account? <Link to="/Rsignup">Sign up</Link>
         </p>
       </div>
     </div>

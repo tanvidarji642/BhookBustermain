@@ -2,21 +2,32 @@ import React from "react";
 import { FaInfoCircle } from "react-icons/fa";
 import '../../assets/css/PartnerWithUs.css';
 import images from '../../assets/images/spaghetti.jpg';
+import { useNavigate } from "react-router-dom";
 
 const PartnerWithUs = () => {
+
+  const navigate = useNavigate(); 
+
+  const handlgetStarted = () => {
+    navigate("/restaurant/rlogin");
+  }
+
   return (
     <div className="partner-container">
+      
       {/* Hero Section */}
       <div className="hero-section">
         {/* <img src="https://res.cloudinary.com/demo/image/upload/sample.jpg" alt="Food Image" className="hero-image" /> */}
         <img src={images} alt="Food Image" className="hero-image" />
         <div className="hero-overlay">
           <h2>Partner with BHookhBuster!</h2>
-          <p>Increase your online Offers</p>
+          {/* <p>Increase your online Offers</p> */}
+          <p>Grow your business!</p>
+          <button className="button" onClick={handlgetStarted}>Regisyter your resturant</button>
         </div>
         
         {/* Get Started Box */}
-        <div className="get-started-box">
+        {/* <div className="get-started-box">
           <h3>Get Started</h3>
           <p>Enter a mobile number or restaurant ID to continue</p>
           <div className="input-container">
@@ -25,7 +36,11 @@ const PartnerWithUs = () => {
           </div>
           <button disabled className="continue-btn">Continue</button>
           <p className="terms">By logging in, I agree  to BhookhBusters’s <a href="#">terms & conditions</a></p>
-        </div>
+        </div> */}
+
+          {/* button */}
+          {/* <div className="button-resurant">
+          </div> */}
       </div>
 
       {/* Steps Section */}

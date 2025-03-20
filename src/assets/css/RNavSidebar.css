@@ -1,0 +1,226 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Root Variables */
+:root {
+  --primary-color: #ff6b00;
+  --primary-hover: #ff8800;
+  --secondary-color: #111111;
+  --text-color: #f3f3f3;
+  --navbar-bg: rgba(20, 20, 20, 0.9);
+  --border-color: rgba(255, 107, 0, 0.3);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --glow: 0 0 20px rgba(255, 107, 0, 0.6);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+/* === Navbar Container === */
+.app-header {
+  background: var(--navbar-bg);
+  box-shadow: var(--shadow);
+  padding: 0.8rem 2rem;
+  transition: var(--transition);
+}
+
+.app-header .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distributes elements properly */
+  }
+
+/* === Navbar Links === */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary-hover);
+  background: rgba(255, 107, 0, 0.1);
+}
+
+/* === Sidebar Toggle Icon === */
+.navbar-nav .bi-list {
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.navbar-nav .bi-list:hover {
+  color: var(--primary-hover);
+}
+
+/* === Dropdown Menus === */
+.dropdown-menu {
+  position: absolute;
+  background: var(--navbar-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition);
+  min-width: 250px;
+  z-index: 1000;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  padding: 0.7rem 1rem;
+  display: block;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.dropdown-menu a:hover {
+  background: var(--primary-hover);
+  color: white;
+}
+
+/* === Search, Messages & Notifications === */
+.navbar-nav .nav-link i {
+  font-size: 1.4rem;
+  transition: var(--transition);
+}
+
+.navbar-nav .nav-link i:hover {
+  color: var(--primary-hover);
+}
+
+/* === Notification Badge === */
+.navbar-badge {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  font-size: 0.7rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+}
+
+/* === User Profile Dropdown === */
+.user-menu .user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+  transition: var(--transition);
+}
+
+.user-menu .user-image:hover {
+  transform: scale(1.1);
+  border-color: var(--primary-hover);
+}
+
+/* === User Dropdown Menu === */
+.user-menu .dropdown-menu {
+  right: 0;
+  left: auto;
+  min-width: 220px;
+}
+
+.user-header {
+  text-align: center;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: white;
+}
+
+.user-header img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 0.5rem;
+}
+
+.user-body {
+  padding: 0.8rem;
+}
+
+.user-body .row {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.user-footer {
+  padding: 0.7rem;
+  text-align: center;
+}
+
+.user-footer a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: white;
+  background: var(--primary-color);
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.user-footer a:hover {
+  background: var(--primary-hover);
+}
+
+/* === Fullscreen Toggle === */
+.nav-item .bi-arrows-fullscreen {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .navbar-nav {
+    gap: 1rem;
+  }
+
+  .dropdown-menu {
+    min-width: 200px;
+  }
+
+  .user-menu .dropdown-menu {
+    min-width: 180px;
+  }
+}
