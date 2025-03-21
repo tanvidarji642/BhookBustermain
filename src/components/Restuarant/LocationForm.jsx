@@ -90,7 +90,7 @@ const RestaurantRegistration = () => {
       data.userId = localStorage.getItem('id');
       
       setIsLoading(true);
-      const response = await axios.post('/locations/', data);
+      const response = await axios.post('/location', data);
       //data.roleId=
       if (response.status === 201) {
         toast.success('Restaurant registered successfully!');
@@ -161,15 +161,15 @@ const RestaurantRegistration = () => {
           </div>
           
           <div className="form-group">
-            <label htmlFor="timmings">Operating Hours</label>
+            <label htmlFor="timings">Operating Hours</label>
             <input
               type="text"
-              id="timmings"
+              id="timings"
               placeholder="e.g. Mon-Fri: 9AM-10PM, Sat-Sun: 10AM-11PM"
-              {...register("timmings", { required: "Operating hours are required" })}
-              className={errors.timmings ? "input-error" : ""}
+              {...register("timings", { required: "Operating hours are required" })}
+              className={errors.timings ? "input-error" : ""}
             />
-            {errors.timmings && <p className="error-message">{errors.timmings.message}</p>}
+            {errors.timmings && <p className="error-message">{errors.timings.message}</p>}
           </div>
           
           <div className="form-group">
@@ -230,7 +230,7 @@ const RestaurantRegistration = () => {
               >
                 <option value="">Select City</option>     
                 {cities && cities.map((city) => (
-                  <option key={city._id} value={city._id}>{city.name || city._id}</option>
+                  <option key={city._id} value={city._id}>{city.name}</option>
                 ))}
               </select>
               {errors.cityId && <p className="error-message">{errors.cityId.message}</p>}
@@ -245,17 +245,17 @@ const RestaurantRegistration = () => {
             >
               <option value="">Select Area (Optional)</option>
               {areas?.map((area) => (
-                    <option key={area._id} value={area._id}>{area.areaName}</option>
+                    <option key={area._id} value={area._id}>{area.areaName}</option>//check
                   ))}
             </select>
           </div>
           
           <div className="form-group">
-            <label htmlFor="foodtype">Food Type</label>
+            <label htmlFor="foodType">Food Type</label>
             <select
-              id="foodtype"
-              {...register("foodtype", { required: "Food type is required" })}
-              className={errors.foodtype ? "input-error" : ""}
+              id="foodType"
+              {...register("foodType", { required: "Food type is required" })}
+              className={errors.foodType ? "input-error" : ""}
             >
               <option value="Vegetarian">Vegetarian</option>
               <option value="Non-Vegetarian">Non-Vegetarian</option>

@@ -7,7 +7,7 @@
   --secondary-color: #111111;
   --text-color: #f3f3f3;
   --input-bg: rgba(0, 0, 0, 0.4);
-  --card-bg: rgba(20, 20, 20, 0.7);
+  /* --card-bg: rgba(20, 20, 20, 0.7); */
   --light-text: #cccccc;
   --border-color: rgba(255, 107, 0, 0.3);
   --error-color: #ff4545;
@@ -59,17 +59,47 @@ body {
   }
 }
 
+/* .auth-container {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--secondary-color);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(50, 50, 50, 0.8) 0%, rgba(0, 0, 0, 0.8) 90%),
+    repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05) 0px, rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 10px);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+} */
+
 .auth-container {
   display: flex;
   min-height: 100vh;
   overflow: hidden;
   position: relative;
   background-color: var(--secondary-color);
-  background-image: url('../images/food.jpg') ;
+
+  /* Keep existing gradient background */
   /* background-image: 
     radial-gradient(circle at 10% 20%, rgba(50, 50, 50, 0.8) 0%, rgba(0, 0, 0, 0.8) 90%),
-    repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05) 0px, rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 10px); */
+    repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05) 0px, rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 10px),
+    url('../images/pizza-removebg.png'); */
+    
+  background-position: bottom right; 
+  background-size: 150px 150px; /* Adjust size as needed */
+  background-repeat: no-repeat; /* Prevent repeating */
   transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.auth-container::after {
+  content: "";
+  position: absolute;
+  bottom: 20px; 
+  right: 20px;
+  width: 190px; 
+  height: 150px;
+  /* background: url('../images/pizza-removebg.png') no-repeat center/contain; */
+  pointer-events: none; 
+  opacity: 0.9;
 }
 
 /* Animation for form transition */

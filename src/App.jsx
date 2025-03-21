@@ -33,12 +33,13 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="partnerwithus" element={<PartnerWithus />} />
+            <Route path="addoffer" element={<AddOffer />} />
+            <Route path="locationform" element={<LocationForm />} />
 
 
+    
             <Route element={<PrivateRoutes />}>
               <Route path="/user" element={<UserSidebar />}>
-                <Route path="locationform" element={<LocationForm />} />
-                <Route path="addoffer" element={<AddOffer />} />
               </Route>
 
               <Route path="/restaurant" element={<Rsidebar />}>

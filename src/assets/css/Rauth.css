@@ -38,7 +38,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: url('../images/food.jpg') no-repeat center center/cover;
+  /* background: url('../images/food.jpg') no-repeat center center/cover; */
+  background-color: url('../images/login-background.jpg');
   position: relative;
 }
 

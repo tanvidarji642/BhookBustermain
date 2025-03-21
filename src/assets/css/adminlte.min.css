@@ -40,6 +40,7 @@
 
 .navbar scrolled {
   background-color: var(--navbar-bg-dark);
+  background-color:transparent; 
 }
 /* .navbar.scrolled {
   background-color: rgba(0, 0, 0, 0.8);  */
@@ -96,7 +97,7 @@
 .navbar-right a:last-child {
   background-color: var(--primary-color);
   color: var(--text-color);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem; 
   border-radius: 4px;
   font-weight: 600;
 }

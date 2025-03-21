@@ -8,14 +8,16 @@ import FirmCollections from './FirmCollections'
 
 const LandingPage = () => {
   return (
-    <div>
+    <div >
+      {/* <div className="hero-container"> */}
       <UserNavbar />
       <Hero />
+      {/* </div> */}
       <Services />
       <Item />
       <FirmCollections />
      
-      
+     
     </div>
   )
 }
