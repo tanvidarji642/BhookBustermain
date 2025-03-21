@@ -27,17 +27,17 @@ const Hero = () => {
       </div>
       
       {/* Quarter Circle with Images */}
-      <div className="quarter-circle-container">
+      {/* <div className="quarter-circle-container"> */}
         {/* Quarter Circle Background */}
-        <div id="quarter-circle-background"></div>
+        {/* <div id="quarter-circle-background"></div> */}
         
         {/* Udon SVG - animated with rotation */}
-        <img
+        {/* <img
           src="../src/assets/items/pizza2.png"
           alt="udon"
           loading="eager"
           className="udon-image"
-        />
+        /> */}
         
         {/* Sugar SVG - positioned at top of quarter circle */}
         {/* <img
@@ -52,7 +52,7 @@ const Hero = () => {
           alt="chopstick"
           className="chopstick-image"
         /> */}
-      </div>
+      {/* </div> */}
     </section>
   );
 };

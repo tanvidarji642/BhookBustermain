@@ -38,10 +38,10 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.navbar scrolled {
+/* .navbar scrolled {
   background-color: var(--navbar-bg-dark);
   background-color:transparent; 
-}
+} */
 /* .navbar.scrolled {
   background-color: rgba(0, 0, 0, 0.8);  */
   /* background-color: var(--navbar-bg-light); */

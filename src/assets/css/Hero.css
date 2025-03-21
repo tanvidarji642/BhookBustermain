@@ -25,13 +25,11 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
     width: 100%;
     min-height: 75vh;
-    /* margin-top: 0%; */
-    /* background-image: url("../images/spaghetti.jpg"); */
-    /* opacity: 0; */
     top: 0;
+    background-image: url(../images/Biriyani.png);
   }
   
   .padding-y {
@@ -544,8 +542,6 @@ button:hover {
     }
   }
 
-/* 
-  
   .hero-container {
     position: relative;
     width: 100%;
@@ -559,5 +555,5 @@ button:hover {
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1000; 
-  } */
+  } 
   
