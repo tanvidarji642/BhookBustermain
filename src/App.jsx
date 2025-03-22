@@ -28,23 +28,21 @@ function App() {
     <>
       <div className="layout-fixed sidebar-expand-lg bg-body-tertiary sidebar-open app-loaded">
         <div className="app-wrapper">
-          <Routes>
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
+          <Routes>   
             <Route path="/" element={<LandingPage />} />
             <Route path="partnerwithus" element={<PartnerWithus />} />
-            <Route path="addoffer" element={<AddOffer />} />
-            <Route path="locationform" element={<LocationForm />} />
-
-
-    
+            
             <Route element={<PrivateRoutes />}>
               <Route path="/user" element={<UserSidebar />}>
+                <Route path="signup" element={<Signup />} />
+                <Route path="login" element={<Login />} />
               </Route>
 
               <Route path="/restaurant" element={<Rsidebar />}>
                 <Route path="rlogin" element={<Rlogin />} />
                 <Route path="rsignup" element={<Rsignup />} />
+                <Route path="addoffer" element={<AddOffer />} />
+                <Route path="locationform" element={<LocationForm />} />
               </Route>
               
               <Route path="/admin" element={<Adminsidebar />}>

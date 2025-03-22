@@ -5,6 +5,8 @@ import Hero from './Hero'
 import Services from './Services'
 import Item from './Item'
 import FirmCollections from './FirmCollections'
+import WhyChooseUs from './WhyChooseUs'
+import { Footer } from './Footer'
 
 const LandingPage = () => {
   return (
@@ -13,11 +15,12 @@ const LandingPage = () => {
       <UserNavbar />
       <Hero />
       </div>
-      <Services />
+      <Services />  
       <Item />
+      <WhyChooseUs />
       <FirmCollections />
-     
-     
+      <Footer />
+
     </div>
   )
 }

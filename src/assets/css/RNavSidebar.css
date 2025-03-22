@@ -1,8 +1,8 @@
 /* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
 
 /* Root Variables */
-:root {
+/* :root {
   --primary-color: #ff6b00;
   --primary-hover: #ff8800;
   --secondary-color: #111111;
@@ -12,7 +12,7 @@
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   --glow: 0 0 20px rgba(255, 107, 0, 0.6);
   --transition: all 0.3s ease-in-out;
-}
+} */
 
 /* === Navbar Container === */
 .app-header {

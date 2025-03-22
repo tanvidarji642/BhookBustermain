@@ -9,10 +9,11 @@ const PartnerWithUs = () => {
   const navigate = useNavigate(); 
 
   const handlgetStarted = () => {
-    navigate("/restaurant/rlogin");
+    navigate("/restaurant");
   }
 
   return (
+    
     <div className="partner-container">
       
       {/* Hero Section */}

@@ -1,7 +1,7 @@
 :root {
     /* Light theme variables */
-    --primary-color: #ff6b6b;
-    --primary-hover: #ff5252;
+    --primary-color: #f54421;
+    --primary-hover: rgb(240, 47, 36);
     --secondary-color: #ffffff;
     --text-color: #333333;
     --border-color: #dddddd;
@@ -9,13 +9,13 @@
     --glow: 0 0 5px rgba(255, 107, 107, 0.5);
     --transition: all 0.3s ease;
     --background-color: #f5f5f5;
-    --card-bg: #ffffff;
+    --card-bg: #ffffff; 
   }
   
   /* Dark theme variables */
   [data-theme="dark"] {
-    --primary-color: #ff6b6b;
-    --primary-hover: #ff5252;
+    --primary-color: #f35f5f;
+    --primary-hover: #eb4545;
     --secondary-color: #1a1a1a;
     --text-color: #f5f5f5;
     --border-color: #444444;

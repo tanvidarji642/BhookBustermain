@@ -1,10 +1,10 @@
 import React from "react";
 
 const services = [
-  { title: "FOOD DELIVERY", discount: "60%", img: "🍽️" },
-  { title: "INSTA MART", discount: "60%", img: "🛒" },
-  { title: "DINEOUT", discount: "50%", img: "🍽️" },
-  { title: "GENIE", discount: "Pickup & Drop", img: "📦" },
+  { title: "BHOOK DEALS", discount: "60%", img: "🍔" },
+  { title: "DINE & SAVE", discount: "40%", img: "🍕" },
+  { title: "EASY DINE", discount: "50%", img: "🍽️" },
+  { title: "BHOOK GENIE", discount: "Pickup & Drop", img: "🚀" },
 ];
 
 const Services = () => {

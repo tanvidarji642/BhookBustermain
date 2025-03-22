@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --primary-color: #ff6b00 !important; 
     --primary-hover: #ff8800;
     --secondary-color: #111111;
@@ -12,7 +12,7 @@
     --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     --glow: 0 0 20px rgba(255, 107, 0, 0.6);
     --transition: all 0.3s ease;
-  }
+  } */
   
   /* Restaurant Registration Form Styles */
   .restaurant-register-container {

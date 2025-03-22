@@ -129,6 +129,7 @@ const Signup = () => {
       } else {
         toast.error('Signup failed');
       }
+
     }
   };
 

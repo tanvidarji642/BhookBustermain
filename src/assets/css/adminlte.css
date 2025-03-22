@@ -88,7 +88,7 @@
 }
 
 .nav-link.active {
-  background-color: rgba(255, 107, 0, 0.1);
+  /* background-color: rgba(255, 107, 0, 0.1); */
   color: var(--primary-color);
   border-left: 3px solid var(--primary-color);
 }
