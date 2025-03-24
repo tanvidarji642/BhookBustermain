@@ -8,7 +8,7 @@
     width: 100%;
     min-height: 95vh;
     top: 0;
-    background-image: url(../images/Biriyani.png);
+    /* background-image: url(../images/Biriyani.png); */
   }
   
   .padding-y {
@@ -778,3 +778,4 @@ button:hover {
     text-align: center;
   }
 }
+

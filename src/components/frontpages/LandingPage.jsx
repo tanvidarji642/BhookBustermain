@@ -11,10 +11,10 @@ import { Footer } from './Footer'
 const LandingPage = () => {
   return (
     <div >
-      <div className="hero-container">
+      {/* <div className="hero-container"> */}
       <UserNavbar />
       <Hero />
-      </div>
+      {/* </div> */}
       <Services />  
       <Item />
       <WhyChooseUs />

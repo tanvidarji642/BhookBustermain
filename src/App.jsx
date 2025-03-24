@@ -15,12 +15,14 @@ import Adminsidebar from "./components/admin/Adminsidebar";
 import Rlogin from "./components/Restuarant/Rlogin";
 import Alogin from "./components/admin/Alogin";
 import Rsignup from "./components/Restuarant/Rsignup";
-import { AddOffer } from "./components/Restuarant/AddOffer";
+// import { AddOffer } from "./components/Restuarant/AddOffer";
+import Offer from "./components/Restuarant/Offer";
 import LocationForm from "./components/Restuarant/LocationForm";
-import LandingPage from "./components/Landing page/LandingPage";
+import LandingPage from "./components/frontpages/LandingPage";
 import axios from "axios";
 import PartnerWithus from "./components/Restuarant/Partnerwithus";
-
+import ResHero from "./components/Restuarant/ResHero";
+import Rdashboard from "./components/Restuarant/Rdasborad";
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
 
@@ -30,19 +32,23 @@ function App() {
         <div className="app-wrapper">
           <Routes>   
             <Route path="/" element={<LandingPage />} />
-            <Route path="partnerwithus" element={<PartnerWithus />} />
+            <Route path="/partnerwithus" element={<PartnerWithus />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/add-restaurant" element={<LocationForm />} />
+            {/* <Route path="/addoffer" element={<AddOffer />} /> */}
+            <Route path='/add-offer' element={<Offer />} />
+            <Route path='/herores' element={<ResHero />} />
+            <Route path ='/rdashboard' element={<Rdashboard />} />
             
             <Route element={<PrivateRoutes />}>
               <Route path="/user" element={<UserSidebar />}>
-                <Route path="signup" element={<Signup />} />
-                <Route path="login" element={<Login />} />
+               
               </Route>
 
               <Route path="/restaurant" element={<Rsidebar />}>
                 <Route path="rlogin" element={<Rlogin />} />
                 <Route path="rsignup" element={<Rsignup />} />
-                <Route path="addoffer" element={<AddOffer />} />
-                <Route path="locationform" element={<LocationForm />} />
               </Route>
               
               <Route path="/admin" element={<Adminsidebar />}>

@@ -1,13 +1,14 @@
 import React from 'react'
+import UserNavbar from './UserNavbar'
 import { Outlet } from 'react-router-dom'
-import UserNavbar from './UserNavbar';
+import '../../assets/css/adminlte.css';
 import { Link } from 'react-router-dom';
 
-export const UserSidebar = () => {
+const Usersidebar = () => {
   return (
     <>
-    <UserNavbar></UserNavbar>
-    <aside
+      <UserNavbar />
+      <aside
         className="app-sidebar bg-body-secondary shadow"
         data-bs-theme="dark"
       >
@@ -59,7 +60,7 @@ export const UserSidebar = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="./addoffer" className="nav-link">
+                    <a href="./index2.html" className="nav-link">
                       <i className="nav-icon bi bi-circle" />
                       <p>ADD Offers</p>
                     </a>
@@ -114,10 +115,7 @@ export const UserSidebar = () => {
       <main className="app-main">
         <Outlet />
       </main>
-      </>
+    </>
   )
 }
-
-
-//resturant managment 
-  
+export default Usersidebar

@@ -38,100 +38,246 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  // const handleChange = (e) => {
+  //   const { name, value, files } = e.target;
+    
+  //   if (name === 'profilePic') {
+  //     const file = files[0];
+  //     setProfilePic(file);
+      
+  //     // Create a file reader to get the file path
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setFormData(prev => ({
+  //         ...prev,
+  //         profilePicPath: reader.result
+  //       }));
+  //     };
+      
+  //     if (file) {
+  //       reader.readAsDataURL(file);
+  //     }
+  //   } else {
+  //     setFormData(prev => ({
+  //       ...prev,
+  //       [name]: value
+  //     }));
+  //   }
+  // };
+
+  // const onSubmit = async (data) => {
+
+  //   console.log(data)
+  //   console.log(data.profilePic[0])
+    
+  //   const formData = new FormData()
+  //   formData.append("firstname",data.firstname)
+  //   formData.append("lastname",data.lastname)
+  //   formData.append("gender",data.gender) 
+  //   formData.append("contact",data.contact)
+  //   formData.append("email",data.email)
+  //   formData.append("password",data.password)
+  //   formData.append("confirm_password",data.confirm_password)
+  //   formData.append("age",data.age)
+  //   formData.append("image",data.image[0])
+  //   formData.append("role",data.role)
+  //   formData.append("status",data.status)
+  //   // formData.append("image",data.image[0])
+
+
+  //   // const res = await axios.post("/create_product_file",formData,{
+  //   //     headers: {
+  //   //         "Content-Type": "multipart/form-data",
+  //   //     },
+  //   // })
+  //   // console.log(res.data)//axios variable....
+  //   // console.log(data.profilePic[0])
+  //   // console.log(data.profilePic[0].name)
+
+
+  //   // console.log('Signup submitted:', data);
+
+    
+
+    
+
+  //   try {
+  //     if (action === "Sign UP") {
+  //       formData.role_id = "67bebf0677d0c62099b63e3e";
+  //       data.status = data.status === "true" || data.status === true;
+  //       console.log("formData...", data);
+
+  //       const res = await axios.post("/user/", data, { 
+  //         headers: {
+  //           'Content-Type': 'application/json'
+  //         }
+  //       });
+
+  //       console.log(res);
+  //       console.log(res.data);
+  //       if (res.status === 201) {
+  //         toast.success('Account created successfully!');
+  //         navigate("/login");
+  //       } else {
+  //         toast.error('Signup failed');
+  //       }
+
+  //     }
+      
+  //     setTimeout(() => {
+       
+  //       navigate('/login');
+  //       handleLoginTransition();
+  //     }, 1500);
+
+      
+  //   } catch (error) {
+  //     if (error.response && error.response.status === 422) {
+  //       toast.error('Invalid data. Please check your input.');
+  //     } else {
+  //       toast.error('Signup failed');
+  //     }
+
+  //   }
+  // };
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    
-    if (name === 'profilePic') {
-      const file = files[0];
-      setProfilePic(file);
-      
-      // Create a file reader to get the file path
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData(prev => ({
-          ...prev,
-          profilePicPath: reader.result
-        }));
-      };
-      
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
-  };
 
-  const onSubmit = async (data) => {
-
-    console.log(data)
-    console.log(data.profilePic[0])
-    
-    const formData = new FormData()
-    formData.append("firstname",data.firstname)
-    formData.append("lastname",data.lastname)
-    formData.append("gender",data.gender) 
-    formData.append("contact",data.contact)
-    formData.append("email",data.email)
-    formData.append("password",data.password)
-    formData.append("confirm_password",data.confirm_password)
-    formData.append("age",data.age)
-    formData.append("profilePic",data.profilePic[0])
-    formData.append("role",data.role)
-    formData.append("status",data.status)
-    // formData.append("image",data.image[0])
-
-
-    // const res = await axios.post("/create_product_file",formData,{
-    //     headers: {
-    //         "Content-Type": "multipart/form-data",
-    //     },
-    // })
-    // console.log(res.data)//axios variable....
-    // console.log(data.profilePic[0])
-    // console.log(data.profilePic[0].name)
-
-
-    // console.log('Signup submitted:', data);
-
-    formData.role_id = "67bebf0677d0c62099b63e3e";
-    data.status = data.status === "true" || data.status === true;
-    console.log("formData...", data);
-
-    try {
-      const res = await axios.post("/user/", data, { 
-        headers: {
-          'Content-Type': 'application/json'
+    if (name === "profilePic") {
+        const file = files[0];
+        if (!file) {
+            toast.error("Please select a profile picture.");
+            return;
         }
-      });
-      console.log(res);
-      console.log(res.data);
-      if (res.status === 201) {
-        toast.success('Account created successfully!');
-        navigate("/login");
-      } else {
-        toast.error('Signup failed');
-      }
 
-      setTimeout(() => {
-       
-        navigate('/login');
-        handleLoginTransition();
-      }, 1500);
+        setProfilePic(file); // ✅ Store file for FormData
 
-      
-    } catch (error) {
-      if (error.response && error.response.status === 422) {
-        toast.error('Invalid data. Please check your input.');
-      } else {
-        toast.error('Signup failed');
-      }
-
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setFormData((prev) => ({
+                ...prev,
+                profilePicPath: reader.result, // ✅ Base64 preview (Optional)
+            }));
+        };
+        reader.readAsDataURL(file);
+    } else {
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     }
-  };
+};
+
+
+
+//   const onSubmit = async (data) => {
+//     console.log("Form Data Before Processing:", data);
+
+//     // Ensure profilePic is selected before accessing index 0
+//     if (!data.profilePicPath || data.profilePicPath.length === 0) {
+//         console.error("No profile picture selected!");
+//         toast.error("Please upload a profile picture.");
+//         return;
+//     }
+
+//     const formData = new FormData();
+//     formData.append("firstname", data.firstname);
+//     formData.append("lastname", data.lastname);
+//     formData.append("gender", data.gender);
+//     formData.append("contact", data.contact);
+//     formData.append("email", data.email);
+//     formData.append("password", data.password);
+//     formData.append("confirm_password", data.confirm_password);
+//     formData.append("age", data.age);
+//     formData.append("role", data.role);
+//     formData.append("status", data.status === "true" || data.status === true);
+//     formData.append("image",data.image[0]);
+
+//     // Ensure file is correctly appended
+//     if (data.profilePicPath && data.profilePicPath.length > 0) {
+//         console.log("Profile Picture Selected:", data.profilePicPath[0]);
+//         formData.append("profilePicPath", data.profilePicPath[0]); // Correct key for FastAPI
+//     } else {
+//         console.error("No image found in data.profilePic!");
+//         toast.error("Profile picture upload failed.");
+//         return;
+//     }
+
+//     // Append the role_id properly
+//     formData.append("role_id", "67bebf0677d0c62099b63e3e"); // Ensure it's part of formData
+
+//     try {
+//         if (action === "Sign UP") {
+//             console.log("Submitting form...");
+
+//             const res = await axios.post("/addwithfile", formData, {
+              
+//                 headers: {
+//                     "Content-Type": "multipart/form-data",
+//                 },
+//             });
+
+//             console.log("Response:", res.data);
+//             if (res.status === 201) {
+//                 toast.success("Account created successfully!");
+//                 navigate("/login");
+//             } else {
+//                 toast.error("Signup failed");
+//             }
+//         }
+//     } catch (error) {
+//         console.error("Error submitting form:", error);
+//         toast.error("An error occurred during signup.");
+//     }
+// };
+
+const onSubmit = async (data) => {
+  console.log("Form Data Before Processing:", data);
+
+  if (!profilePic) {  // ✅ Check if file exists
+      toast.error("Please upload a profile picture.");
+      return;
+  }
+
+  const formData = new FormData();
+  formData.append("firstname", data.firstname);
+  formData.append("lastname", data.lastname);
+  formData.append("gender", data.gender);
+  formData.append("contact", data.contact);
+  formData.append("email", data.email);
+  formData.append("password", data.password);
+  formData.append("confirm_password", data.confirm_password);
+  formData.append("age", data.age);
+  formData.append("role", data.role);
+  formData.append("status", data.status === "true" || data.status === true);
+  formData.append("profilePicPath", data.profilePicPath[0]); // ✅ Append actual file
+
+  formData.append("role_id", "67bebf0677d0c62099b63e3e");
+
+  try {
+      console.log("Submitting form...");
+
+      const res = await axios.post("/addwithfile", formData, {
+          headers: {
+              "Content-Type": "multipart/form-data",
+          },
+      });
+
+      console.log("Response:", res.data);
+      if (res.status === 201) {
+          toast.success("Account created successfully!");
+          navigate("/login");
+      } else {
+          toast.error("Signup failed");
+      }
+  } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("An error occurred during signup.");
+  }
+};
+
+
 
   const handleLoginTransition = () => {
     setAnimating(true);
@@ -310,18 +456,25 @@ const Signup = () => {
                 type="file"
                 accept="image/*"
                 name="profilePic"
-                {...register("profilePic", { required: "Profile picture is required" })}
+                {...register("profilePicPath", { required: "Profile picture is required" })}
                 onChange={handleChange}
-                className={errors.profilePic ? "input-error" : ""}
+                className={errors.profilePicPath ? "input-error" : ""}
               />
               {profilePic && (
-                <div className="profile-preview">
-                  <img 
-                    src={URL.createObjectURL(profilePic)} 
-                    alt="Profile Preview" 
-                    className="preview-image"
-                  />
+                // <div className="profile-preview">
+                //   <img 
+                //     src={URL.createObjectURL(profilePic)} 
+                //     alt="Profile Preview" 
+                //     className="preview-image"
+                //   />
+                // </div>
+
+                <div className="file-indicator">
+     
+    
+     
                 </div>
+
               )}
             </div>
             {/* Status */}
