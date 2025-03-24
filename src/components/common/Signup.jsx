@@ -38,109 +38,6 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // const handleChange = (e) => {
-  //   const { name, value, files } = e.target;
-    
-  //   if (name === 'profilePic') {
-  //     const file = files[0];
-  //     setProfilePic(file);
-      
-  //     // Create a file reader to get the file path
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setFormData(prev => ({
-  //         ...prev,
-  //         profilePicPath: reader.result
-  //       }));
-  //     };
-      
-  //     if (file) {
-  //       reader.readAsDataURL(file);
-  //     }
-  //   } else {
-  //     setFormData(prev => ({
-  //       ...prev,
-  //       [name]: value
-  //     }));
-  //   }
-  // };
-
-  // const onSubmit = async (data) => {
-
-  //   console.log(data)
-  //   console.log(data.profilePic[0])
-    
-  //   const formData = new FormData()
-  //   formData.append("firstname",data.firstname)
-  //   formData.append("lastname",data.lastname)
-  //   formData.append("gender",data.gender) 
-  //   formData.append("contact",data.contact)
-  //   formData.append("email",data.email)
-  //   formData.append("password",data.password)
-  //   formData.append("confirm_password",data.confirm_password)
-  //   formData.append("age",data.age)
-  //   formData.append("image",data.image[0])
-  //   formData.append("role",data.role)
-  //   formData.append("status",data.status)
-  //   // formData.append("image",data.image[0])
-
-
-  //   // const res = await axios.post("/create_product_file",formData,{
-  //   //     headers: {
-  //   //         "Content-Type": "multipart/form-data",
-  //   //     },
-  //   // })
-  //   // console.log(res.data)//axios variable....
-  //   // console.log(data.profilePic[0])
-  //   // console.log(data.profilePic[0].name)
-
-
-  //   // console.log('Signup submitted:', data);
-
-    
-
-    
-
-  //   try {
-  //     if (action === "Sign UP") {
-  //       formData.role_id = "67bebf0677d0c62099b63e3e";
-  //       data.status = data.status === "true" || data.status === true;
-  //       console.log("formData...", data);
-
-  //       const res = await axios.post("/user/", data, { 
-  //         headers: {
-  //           'Content-Type': 'application/json'
-  //         }
-  //       });
-
-  //       console.log(res);
-  //       console.log(res.data);
-  //       if (res.status === 201) {
-  //         toast.success('Account created successfully!');
-  //         navigate("/login");
-  //       } else {
-  //         toast.error('Signup failed');
-  //       }
-
-  //     }
-      
-  //     setTimeout(() => {
-       
-  //       navigate('/login');
-  //       handleLoginTransition();
-  //     }, 1500);
-
-      
-  //   } catch (error) {
-  //     if (error.response && error.response.status === 422) {
-  //       toast.error('Invalid data. Please check your input.');
-  //     } else {
-  //       toast.error('Signup failed');
-  //     }
-
-  //   }
-  // };
-
   const handleChange = (e) => {
     const { name, value, files } = e.target;
 
@@ -172,14 +69,6 @@ const Signup = () => {
 
 
 //   const onSubmit = async (data) => {
-//     console.log("Form Data Before Processing:", data);
-
-//     // Ensure profilePic is selected before accessing index 0
-//     if (!data.profilePicPath || data.profilePicPath.length === 0) {
-//         console.error("No profile picture selected!");
-//         toast.error("Please upload a profile picture.");
-//         return;
-//     }
 
 //     const formData = new FormData();
 //     formData.append("firstname", data.firstname);
@@ -192,7 +81,20 @@ const Signup = () => {
 //     formData.append("age", data.age);
 //     formData.append("role", data.role);
 //     formData.append("status", data.status === "true" || data.status === true);
-//     formData.append("image",data.image[0]);
+//     formData.append("uploads",data.profilePicPath[0]);  
+
+
+//     const res = await axios.post("/user/addwithfile", formData)
+//     console.log("Form Data Before Processing:", data);
+
+//     // Ensure profilePic is selected before accessing index 0
+//     if (!data.profilePicPath || data.profilePicPath.length === 0) {
+//         console.error("No profile picture selected!");
+//         toast.error("Please upload a profile picture.");
+//         return;
+//     }
+
+   
 
 //     // Ensure file is correctly appended
 //     if (data.profilePicPath && data.profilePicPath.length > 0) {
@@ -211,12 +113,10 @@ const Signup = () => {
 //         if (action === "Sign UP") {
 //             console.log("Submitting form...");
 
-//             const res = await axios.post("/addwithfile", formData, {
+            
               
-//                 headers: {
-//                     "Content-Type": "multipart/form-data",
-//                 },
-//             });
+               
+           
 
 //             console.log("Response:", res.data);
 //             if (res.status === 201) {
@@ -233,50 +133,71 @@ const Signup = () => {
 // };
 
 const onSubmit = async (data) => {
-  console.log("Form Data Before Processing:", data);
-
-  if (!profilePic) {  // ✅ Check if file exists
-      toast.error("Please upload a profile picture.");
-      return;
-  }
-
-  const formData = new FormData();
-  formData.append("firstname", data.firstname);
-  formData.append("lastname", data.lastname);
-  formData.append("gender", data.gender);
-  formData.append("contact", data.contact);
-  formData.append("email", data.email);
-  formData.append("password", data.password);
-  formData.append("confirm_password", data.confirm_password);
-  formData.append("age", data.age);
-  formData.append("role", data.role);
-  formData.append("status", data.status === "true" || data.status === true);
-  formData.append("profilePicPath", data.profilePicPath[0]); // ✅ Append actual file
-
-  formData.append("role_id", "67bebf0677d0c62099b63e3e");
-
   try {
+      console.log("Form Data Before Processing:", data);
+      
+      // Create FormData object for file upload
+      const formData = new FormData();
+      formData.append("firstname", data.firstname);
+      formData.append("lastname", data.lastname);
+      formData.append("gender", data.gender);
+      formData.append("contact", data.contact);
+      formData.append("email", data.email);
+      formData.append("password", data.password);
+      formData.append("confirm_password", data.confirm_password);
+      formData.append("age", data.age);
+      formData.append("role", data.role);
+      formData.append("role_id", "67bebf0677d0c62099b63e3e"); // Add role_id
+      formData.append("status", data.status === "true" || data.status === true);
+      
+      // Check if profilePicPath exists and has files
+      if (!data.profilePicPath || data.profilePicPath.length === 0) {
+          toast.error("Please upload a profile picture.");
+          return;
+      }
+      
+      // Append the profile picture
+      formData.append("profilePicPath", data.profilePicPath[0]);
+      
       console.log("Submitting form...");
-
-      const res = await axios.post("/addwithfile", formData, {
+      
+      // Send the request to the backend
+      const res = await axios.post("/user/addwithfile", formData, {
           headers: {
-              "Content-Type": "multipart/form-data",
+              "Content-Type": "multipart/form-data", // Important for file uploads
           },
       });
-
+      
       console.log("Response:", res.data);
-      if (res.status === 201) {
+      
+      if (res.status === 200 || res.status === 201) {
           toast.success("Account created successfully!");
-          navigate("/login");
+          // Navigate to login after success
+          setTimeout(() => {
+              navigate('/login');
+          }, 1500);
       } else {
           toast.error("Signup failed");
       }
   } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("An error occurred during signup.");
+      
+      // Better error handling with specific messages
+      if (error.response) {
+          if (error.response.status === 400) {
+              toast.error(error.response.data.detail || "Invalid input data");
+          } else if (error.response.status === 409) {
+              toast.error("Email already exists");
+          } else if (error.response.status === 422) {
+              toast.error("Invalid data format. Please check your inputs.");
+          } else {
+              toast.error(`Error: ${error.response.data.detail || "Unknown error"}`);
+          }
+      } else {
+          toast.error("Connection error. Please try again.");
+      }
   }
 };
-
 
 
   const handleLoginTransition = () => {
@@ -355,39 +276,7 @@ const onSubmit = async (data) => {
               {errors.lastname && <p className="error-message">{errors.lastname.message}</p>}
             </div>
             {/* Gender */}
-            {/* <div className="form-group">
-              <label>Gender</label>
-              <div className="form-group-radio">
-                <label htmlFor="male">
-                  <input
-                    type="radio"
-                    id="male"
-                    value="male"
-                    {...register("gender", { required: "Gender is required" })}
-                  />
-                  Male
-                </label>
-                <label htmlFor="female">
-                  <input
-                    type="radio"
-                    id="female"
-                    value="female"
-                    {...register("gender", { required: "Gender is required" })}
-                  />
-                  Female
-                </label>
-                <label htmlFor="other">
-                  <input
-                    type="radio"
-                    id="other"
-                    value="other"
-                    {...register("gender", { required: "Gender is required" })}
-                  />
-                  Other
-                </label>
-              </div>
-              {errors.gender && <p className="error-message">{errors.gender.message}</p>}
-            </div> */}
+            
             <div className="form-group">
               <label htmlFor="gender">Gender</label>
               <select 

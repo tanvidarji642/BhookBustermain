@@ -23,6 +23,9 @@ import axios from "axios";
 import PartnerWithus from "./components/Restuarant/Partnerwithus";
 import ResHero from "./components/Restuarant/ResHero";
 import Rdashboard from "./components/Restuarant/Rdasborad";
+
+import HomePage from "./components/common/HomePage";
+import AboutPage from "./components/common/AboutPage";
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
 
@@ -40,6 +43,9 @@ function App() {
             <Route path='/add-offer' element={<Offer />} />
             <Route path='/herores' element={<ResHero />} />
             <Route path ='/rdashboard' element={<Rdashboard />} />
+
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
             
             <Route element={<PrivateRoutes />}>
               <Route path="/user" element={<UserSidebar />}>
