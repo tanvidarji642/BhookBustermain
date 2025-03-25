@@ -80,6 +80,10 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+.features-section h2 {
+    margin-bottom: 20px;
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -112,6 +116,9 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+.offers-section h2 {
+    margin-bottom: 20px;
+}
 .offers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -175,6 +182,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .primary-btn {
+    /* margin-bottom: 200px; */
     padding: 12px 25px;
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -182,6 +190,11 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     transition: var(--transition);
 }
+
+/* .btnPrimary {
+    margin: 10px;
+    background-color: transparent;
+} */
 
 .primary-btn:hover {
     background-color: var(--primary-hover);

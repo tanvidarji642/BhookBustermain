@@ -2,43 +2,49 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../../assets/css/FoodPage.css";
 
-// This component will show all details and offers for a specific food category
-const FoodDetail = () => {
+const FoodPage = () => {
   const { category } = useParams();
   const [foodOffers, setFoodOffers] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  // Mock data for food offers - in a real app, you would fetch this from an API
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    // Simulating API call with setTimeout
-    setTimeout(() => {
-      // Example offers based on category
-      const mockOffers = {
-        pizza: [
-          { id: 1, title: "Buy 1 Get 1 Free", image: "/assets/item/pizza1.jpg", price: "₹299", description: "Medium size pizza with 2 toppings" },
-          { id: 2, title: "Family Pack Special", image: "/assets/item/pizza2.jpg", price: "₹599", description: "Large pizza with unlimited toppings" },
-          { id: 3, title: "Weekend Offer", image: "/assets/item/pizza3.jpg", price: "₹399", description: "Medium pizza with soft drink and garlic bread" }
-        ],
-        burger: [
-          { id: 1, title: "Classic Combo", image: "/assets/item/burger1.jpg", price: "₹199", description: "Burger with fries and cola" },
-          { id: 2, title: "Double Patty Special", image: "/assets/item/burger2.jpg", price: "₹249", description: "Double patty burger with cheese" }
-        ],
-        // Add more categories as needed
-      };
-      
-      // If we have offers for this category, use them, otherwise use a default empty array
-      setFoodOffers(mockOffers[category] || []);
-      setLoading(false);
-    }, 500);
-  }, [category]);
-  
-  // Function to format category name for display (convert kebab-case to Title Case)
-  const formatCategoryName = (name) => {
-    return name.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-  };
+    const fetchOffers = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(`http://localhost:8000/offers`); // ✅ Update API endpoint
+        if (!response.ok) {
+          throw new Error("Failed to fetch food offers");
+        }
+        const data = await response.json();
+
+        // Filter offers based on selected food category
+        const filteredOffers = data.filter((offer) =>
+          offer.foodType.toLowerCase().includes(category.toLowerCase())
+        );
+
+        setFoodOffers(filteredOffers);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOffers();
+  }, [category]); // ✅ Dependency on `category` ensures re-fetching when it changes
+
+  const formatCategoryName = (name) =>
+    name.split("-").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
   if (loading) {
     return <div className="loading">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="error">Error: {error}</div>;
   }
 
   return (
@@ -47,16 +53,17 @@ const FoodDetail = () => {
         <Link to="/" className="back-button">← Back to All Foods</Link>
         <h1>{formatCategoryName(category)} Offers</h1>
       </div>
-      
+
       {foodOffers.length > 0 ? (
         <div className="food-offers-grid">
-          {foodOffers.map(offer => (
+          {foodOffers.map((offer) => (
             <div className="food-offer-card" key={offer.id}>
               <img src={offer.image} alt={offer.title} className="offer-image" />
               <div className="offer-content">
                 <h3>{offer.title}</h3>
-                <p className="offer-price">{offer.price}</p>
+                <p className="offer-price">Discount: {offer.discountPercentage}%</p>
                 <p className="offer-description">{offer.description}</p>
+                <p className="offer-minOrder">Min Order: ₹{offer.minOrderAmount}</p>
                 <button className="order-button">Order Now</button>
               </div>
             </div>
@@ -72,4 +79,4 @@ const FoodDetail = () => {
   );
 };
 
-export default FoodDetail;  
+export default FoodPage;
