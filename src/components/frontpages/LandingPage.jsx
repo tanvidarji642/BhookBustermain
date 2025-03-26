@@ -14,6 +14,7 @@ const LandingPage = () => {
       {/* <div className="hero-container"> */}
       <UserNavbar />
       <Hero />
+      
       {/* </div> */}
       <Services />  
       <Item />

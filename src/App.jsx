@@ -27,6 +27,7 @@ import Rdashboard from "./components/Restuarant/Rdasborad";
 import HomePage from "./components/common/HomePage";
 import AboutPage from "./components/common/AboutPage";
 import FoodPage from "./components/frontpages/FoodPage";
+import OffersPage from "./components/frontpages/OffersPage";
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
 
@@ -36,6 +37,7 @@ function App() {
         <div className="app-wrapper">
           <Routes>  
           <Route path="/food/:category" element={<FoodPage />} /> 
+          <Route path="/offers" element={<OffersPage />} /> 
             <Route path="/" element={<LandingPage />} />
             <Route path="/partnerwithus" element={<PartnerWithus />} />
             <Route path="/signup" element={<Signup />} />

@@ -8,7 +8,7 @@
     width: 100%;
     min-height: 95vh;
     top: 0;
-    /* background-image: url(../images/Biriyani.png); */
+    background-image: url(../images/Biriyani.png);
   }
   
   .padding-y {
@@ -39,6 +39,10 @@
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
     max-width: 36rem;
+  }
+
+  .hero-buttons {
+    margin: 20px;
   }
   
   .hero-button-section {

@@ -1,93 +1,172 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 :root {
-    --primary-color: #ff7300;
-    --primary-hover: #ff8c42;
-    --secondary-color: #1b1b1b;
-    --text-color: #fdfdfd;
-    --input-bg: rgba(255, 255, 255, 0.1);
-    --card-bg: rgba(30, 30, 30, 0.9);
-    --light-text: #e0e0e0;
-    --border-color: rgba(255, 115, 0, 0.5);
-    --error-color: #ff4f4f;
-    --success-color: #28c76f;
-    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    --glow: 0 0 12px #ff7300;
-    --transition: all 0.3s ease-in-out;
-    --font-family: "Poppins", sans-serif;
-  }
-  
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    background-color: var(--secondary-color);
- } */
+  --primary-color: #ff6b00 !important;
+  --primary-hover: #ff8800;
+  --secondary-color: #111111;
+  --text-color: #f3f3f3;
+  --input-bg: rgba(0, 0, 0, 0.4);
+  --card-bg: rgba(20, 20, 20, 0.7);
+  --light-text: #cccccc;
+  --border-color: rgba(255, 107, 0, 0.3);
+  --error-color: #ff4545;
+  --success-color: #28c76f;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --glow: 0 0 20px rgba(255, 107, 0, 0.6);
+  --transition: all 0.3s ease;
+}
 
- .auth-container {
-    display: flex;
-    width: 100vw; /* Ensure full width */
-    min-height: 100vh;
-    overflow: hidden;
-    position: relative;
-    /* background-image: linear-gradient(#a8dfeb, #ffffff) !important; */
-    background-color: var(--secondary-color);
-    background-image: 
-      radial-gradient(circle at 10% 20%, rgba(50, 50, 50, 0.8) 0%, rgba(0, 0, 0, 0.8) 90%),
-      repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05) 0px, rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 10px);
-    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  }
+.offer-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                    url('/assets/images/offer-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
+}
 
-  .auth-form-container {
-    max-width: 450px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2.5rem;
-    /* background-color: var(--card-bg); */
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(10px);
-    position: relative;
-    border: 1px solid rgba(255, 107, 0, 0.1);
-    overflow: hidden;
-  }
+.offer-form-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding: 2.5rem;
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  z-index: 1;
+}
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .form-group label {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--primary-color);
-  }
-  
-  .form-group-radio {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-  
-  }
-  .form-group input,
-  .form-group select {
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--text-color);
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: var(--transition);
-    /* background-color: var(--input-bg);
-    color: var(--text-color); */
-    background-color: rgb(255 255 255);
-      color: var(--secondary-color);
-  }
-  
-  .form-group input:focus,
-  .form-group select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 4px 15px rgb(9 120 145 / 61%);
-  }
+.offer-form-wrapper h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(255, 107, 0, 0.3);
+}
+
+.offer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.offer-form label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--light-text);
+}
+
+.offer-form input,
+.offer-form select,
+.offer-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.offer-form input::placeholder,
+.offer-form textarea::placeholder {
+  color: var(--light-text);
+  opacity: 0.7;
+}
+
+.offer-form input:focus,
+.offer-form select:focus,
+.offer-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: var(--glow);
+}
+
+.input-error {
+  border-color: var(--error-color) !important;
+}
+
+.input-error:focus {
+  box-shadow: 0 0 8px rgba(255, 69, 69, 0.7);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
 
 
-  
+.offer-form input:focus,
+.offer-form select:focus,
+.offer-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.2);
+}
+
+.input-error {
+  border-color: var(--error-color) !important;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.submit-button {
+  padding: 14px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+}
+
+.submit-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 0, 0.4);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .offer-form-wrapper {
+      padding: 1.5rem;
+  }
+  .form-row {
+      grid-template-columns: 1fr;
+  }
+  .offer-form-wrapper h2 {
+      font-size: 1.8rem;
+  }
+}

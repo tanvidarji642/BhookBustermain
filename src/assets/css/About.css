@@ -30,11 +30,13 @@
 }
 
 .about-hero {
+    height: 300px;
     background: var(--primary-color);
     color: var(--secondary-color);
     text-align: center;
     padding: 60px 20px;
     box-shadow: var(--shadow);
+    /* background: url(../images/Samosa.png); */
 }
 
 .about-hero h1 {
@@ -126,9 +128,3 @@
     box-shadow: var(--glow);
 }
 
-.footer {
-    background: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 40px 20px;
-    text-align: center;
-}

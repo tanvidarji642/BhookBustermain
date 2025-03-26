@@ -47,7 +47,7 @@ const HomePage = () => {
           </div>
           <div className="hero-buttons">
             <Link to="/signup" className="btn primary-btn">Join Now</Link>
-            <Link to="/menu" className="btn secondary-btn">Browse Offers</Link>
+            {/* <Link to="/menu" className="btn secondary-btn">Browse Offers</Link> */}
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@ const HomePage = () => {
           ))}
         </div>
         <div className="view-more-container">
-          <Link to="/menu" className="btn view-more-btn">View All Offers</Link>
+          {/* <Link to="/menu" className="btn view-more-btn">View All Offers</Link> */}
         </div>
       </div>
 
