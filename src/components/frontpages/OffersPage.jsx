@@ -9,7 +9,7 @@ const OffersPage = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const response = await fetch("http://localhost:8000/offers"); // Adjust API URL if needed
+        const response = await fetch("http://localhost:8000/offers");
         if (!response.ok) {
           throw new Error("Failed to fetch offers");
         }

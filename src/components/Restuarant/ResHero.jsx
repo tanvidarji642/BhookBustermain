@@ -9,7 +9,6 @@ const LandingPage = () => {
 
   const handleContinue = () => {
     if (restaurantName.trim()) {
-      // Navigate to signup page and pass the restaurant name
       navigate('/locationform', { state: { restaurantName } });
     } else {
       alert('Please enter your restaurant name');
@@ -47,7 +46,7 @@ const LandingPage = () => {
               <div className="feature-icon">💸</div>
               <div className="feature-text">
                 <h3>Boost Revenue</h3>
-                <p>Increase orders and average ticket size</p>
+                <p>Increase orders and average tPicket size</p>
               </div>
             </div>
           </div>

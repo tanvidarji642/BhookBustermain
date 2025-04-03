@@ -1,6 +1,5 @@
 import React from 'react'
 import '../../assets/css/adminlte.min.css';
-// import '../../assets/css/RNavSidebar.css';
 
 const Rnav = () => {
   return (

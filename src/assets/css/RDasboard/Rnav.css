@@ -45,10 +45,16 @@
     text-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   }
   
+  /* .navbar-buttons {
+    display: flex;
+    gap: 1rem;
+  } */
   .navbar-buttons {
     display: flex;
     gap: 1rem;
+    align-items: center;
   }
+  
   
   .nav-button {
     padding: 8px 16px;
@@ -58,9 +64,15 @@
     transition: var(--transition);
   }
   
-  .register-button {
-    /* background-color: var(--primary-color); */
+  /* .register-button {
+    
     color: white;
+  }
+   */
+   .register-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: 1px solid var(--primary-color);
   }
   
   .register-button:hover {

@@ -55,39 +55,6 @@ const PartnerWithUs = () => {
         </div>
       </div> */}
 
-      {/* Document Upload Section */}
-      {/* <div className="documents-section">
-        <h3>For an easy form filling process,</h3>
-        <p className="subheading">You can keep these documents handy.</p>
-        
-        <div className="document-list">
-          <div className="document-card">
-            <i className="fas fa-file-alt"></i>
-            <p>FSSAI License Copy <a href="#" className="apply-link">Apply Here</a></p>
-          </div>
-
-          <div className="document-card">
-            <i className="fas fa-utensils"></i>
-            <p>Your Restaurant Menu</p>
-          </div>
-
-          <div className="document-card">
-            <i className="fas fa-university"></i>
-            <p>Bank Details</p>
-          </div>
-
-          <div className="document-card">
-            <i className="fas fa-file-invoice-dollar"></i>
-            <p>GSTIN <a href="#" className="apply-link">Apply Here</a></p>
-          </div>
-
-          <div className="document-card">
-            <i className="fas fa-id-card"></i>
-            <p>PAN Card Copy</p>
-          </div>
-        </div>
-      </div> */}
-
     <div className="steps-container">
       
       <div className="steps-section">

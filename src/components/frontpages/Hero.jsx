@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 // Import the CSS file
-// import '../../assets/css/Hero.css';
+import '../../assets/css/Hero.css';
 
 const Hero = () => {
   return (
@@ -16,14 +16,14 @@ const Hero = () => {
           <Link to="/offers" className="hero-text-link">View Offers</Link>
           </div>
         </article>
-        <article className="hero-stats-wrapper">
+        {/* <article className="hero-stats-wrapper"> */}
           
           {/* <div className="border bg-neutralLineWhite" style={{width: '4.25rem', height: '0', marginTop: '2.5rem', transform: 'rotate(90deg)'}} /> */}
-          <div className="text-center">
+          {/* <div className="text-center"> */}
             {/* <h2 className="hero-card-stat-text">120+</h2>
             <p className="hero-card-title-text">Stores in the world.</p> */}
-          </div>
-        </article>
+          {/* </div> */}
+        {/* </article> */}
       </div>
       
       {/* Quarter Circle with Images */}
@@ -44,21 +44,6 @@ const Hero = () => {
           loading="eager"
           className="udon-image"
         />
-         
-        
-        {/* Sugar SVG - positioned at top of quarter circle */}
-        {/* <img
-          src="../src/assets/items/burger2.png"
-          alt="sugar"
-          className="sugar-image"
-        /> */}
-        
-        {/* Chopstick SVG - positioned at left of quarter circle */}
-        {/* <img
-          src="../src/assets/items/freshf2.png"
-          alt="chopstick"
-          className="chopstick-image"
-        /> */}
       </div>
     </section>
   );

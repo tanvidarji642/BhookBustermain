@@ -1,6 +1,22 @@
 /* auth.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+:root {
+  --primary-color: #f57927 ! important; 
+  --primary-hover: #fcc07b;
+  --secondary-color: #ffffff;
+  --text-color: #f3f3f3;
+  --input-bg: rgb(34, 17, 17);
+  --card-bg: rgb(15, 11, 11);
+  --light-text: hsl(0, 100%, 100%);
+  --border-color: rgba(255, 107, 0, 0.3);
+  --error-color: #ff4545;
+  --success-color: #28c76f;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --glow: 0 0 20px rgba(243, 249, 250, 0.952);
+  --transition: all 0.3s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,39 +27,35 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--text-color);
   background-color: var(--secondary-color);
-  overflow-x: hidden;
-  
 /* Custom Scrollbar for the form container */
-  .scrollable-form {
-    max-height: 80vh;
-    overflow-y: auto;
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: var(--primary-color) rgba(17, 17, 17, 0.6); /* For Firefox */
-  }
-
-  /* Webkit scrollbar styling (Chrome, Safari, Edge) */
-  .scrollable-form::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  .scrollable-form::-webkit-scrollbar-track {
-    background: rgba(17, 17, 17, 0.6);
-    border-radius: 8px;
-  }
-
-  .scrollable-form::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 8px;
-    border: 2px solid rgba(17, 17, 17, 0.6);
-  }
-
-  .scrollable-form::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-hover);
-  }
+.scrollable-form {
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: var(--primary-color) rgb(255, 255, 255); /* For Firefox */
+}
+/* Webkit scrollbar styling (Chrome, Safari, Edge) */
+.scrollable-form::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-/* .auth-container {
+.scrollable-form::-webkit-scrollbar-track {
+  background: rgba(17, 17, 17, 0.6);
+  border-radius: 8px;
+}
+
+.scrollable-form::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 8px;
+  border: 2px solid rgba(17, 17, 17, 0.6);
+}
+
+.scrollable-form::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}}
+
+.auth-container {
   display: flex;
   min-height: 100vh;
   overflow: hidden;
@@ -53,37 +65,6 @@ body {
     radial-gradient(circle at 10% 20%, rgba(50, 50, 50, 0.8) 0%, rgba(0, 0, 0, 0.8) 90%),
     repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05) 0px, rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 10px);
   transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-} */
-
-.auth-container {
-  display: flex;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-  background-color: var(--secondary-color);
-
-  /* Keep existing gradient background */
-  /* background-image: 
-    radial-gradient(circle at 10% 20%, rgba(50, 50, 50, 0.8) 0%, rgba(0, 0, 0, 0.8) 90%),
-    repeating-linear-gradient(45deg, rgba(255, 107, 0, 0.05) 0px, rgba(255, 107, 0, 0.05) 2px, transparent 2px, transparent 10px),
-    url('../images/pizza-removebg.png'); */
-    
-  background-position: bottom right; 
-  background-size: 150px 150px; /* Adjust size as needed */
-  background-repeat: no-repeat; /* Prevent repeating */
-  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.auth-container::after {
-  content: "";
-  position: absolute;
-  bottom: 20px; 
-  right: 20px;
-  width: 190px; 
-  height: 150px;
-  /* background: url('../images/pizza-removebg.png') no-repeat center/contain; */
-  pointer-events: none; 
-  opacity: 0.9;
 }
 
 /* Animation for form transition */
@@ -504,4 +485,65 @@ body {
   .auth-switch-left {
     margin-top: 1rem;
   }
+}
+
+/* Forgot Password Modal */
+.forgot-password-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.forgot-password-content {
+  background-color: rgb(27, 25, 25);
+  border-radius: 8px;
+  padding: 24px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.forgot-password-content h3 {
+  margin-top: 0;
+  color: #fdfdfd;
+}
+
+.forgot-password-form .form-group {
+  margin-bottom: 16px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancel-button {
+  padding: 10px 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #333;
+}
+
+.submit-button {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }

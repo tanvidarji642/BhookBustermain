@@ -1,7 +1,12 @@
 .landing-container {
+  /* height: auto; */
     display: flex;
-    min-height: 100vh;
+    max-height: 90vh;
+
     overflow: hidden;
+    margin-left: 250px;
+    max-width: 1500px;
+    margin-top: 50px;
   
   }
   

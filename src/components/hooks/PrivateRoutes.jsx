@@ -24,7 +24,5 @@ const PrivateRoutes = ()=>{
         return <div>loading...</div>
     }
     return auth.isLoggedin == true?<Outlet/> :<Navigate to="/login"/>
-    //{auth:{isLoggdin:true|fasle,role:""||role:"admin"},isLaoding:true}
-
 }
 export default PrivateRoutes;

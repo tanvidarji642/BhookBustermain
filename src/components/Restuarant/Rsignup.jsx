@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import './Rauth.css';
-
+import axios from 'axios';
 const Rsignup = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -17,8 +17,22 @@ const Rsignup = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const res = await axios.post("/restaurant", formData);
+        
+        console.log("Response:", res.data);
+        
+        if (res.status === 200 || res.status === 201) {
+            toast.success("Account created successfully!");
+            // Navigate to login after success
+            setTimeout(() => {
+                navigate('/login');
+            }, 1500);
+        } else {
+            toast.error("Signup failed");
+        }
         // Add form submission logic here
     };
 

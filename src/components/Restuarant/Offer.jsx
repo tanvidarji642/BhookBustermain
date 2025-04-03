@@ -12,7 +12,7 @@ const OfferForm = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [foodTypes, setFoodTypes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [image, setImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   useEffect(() => {
     fetchRestaurants();
@@ -57,46 +57,84 @@ const OfferForm = () => {
     setImage(file);
   };
 
+    const handleChange = (e) => {
+      const { name, value, files } = e.target;
+  
+      if (name === "profilePic") {
+          const file = files[0];
+          if (!file) {
+              toast.error("Please select a profile picture.");
+              return;
+          }
+  
+          setProfilePic(file); // ✅ Store file for FormData
+  
+          const reader = new FileReader();
+          reader.onloadend = () => {
+              setFormData((prev) => ({
+                  ...prev,
+                  profilePicPath: reader.result, // ✅ Base64 preview (Optional)
+              }));
+          };
+          reader.readAsDataURL(file);
+      } else {
+          setFormData((prev) => ({
+              ...prev,
+              [name]: value,
+          }));
+      }
+  };
+
   const onSubmit = async (data) => {
     try {
-      setIsLoading(true);
       console.log("Form Data Before Processing:", data);
   
-      // Format start and end dates
-      data.startDate = new Date(data.startDate).toISOString();
-      data.endDate = new Date(data.endDate).toISOString();
+      // Create FormData object for file upload
+      const formData = new FormData();
+      formData.append("title", data.title);
+      formData.append("description", data.description || "");
+      formData.append("active", data.active);
+      formData.append("startDate", new Date(data.startDate).toISOString());
+      formData.append("endDate", new Date(data.endDate).toISOString());
+      formData.append("discountPercentage", data.discountPercentage || "");
+      formData.append("minOrderAmount", data.minOrderAmount || "");
+      formData.append("locationId", data.locationId);
+      formData.append("foodType", data.foodType);
   
-      // Check if an image is selected for upload
-      if (image) {
-        const formData = new FormData();
-        formData.append("file", image);
-        formData.append("upload_preset", "your_cloudinary_preset"); // Set your Cloudinary preset
-        formData.append("cloud_name", "your_cloud_name"); // Your Cloudinary Cloud Name
-  
-        console.log("Uploading image to Cloudinary...");
-  
-        // Upload image to Cloudinary
-        const imageRes = await axios.post("https://api.cloudinary.com/v1_1/your_cloud_name/image/upload", formData);
-        
-        console.log("Image Uploaded:", imageRes.data);
-        data.image = imageRes.data.secure_url; // Set the image URL from Cloudinary
+      // Ensure an image file is selected before submission
+      if (!data.image || data.image.length === 0) {
+        toast.error("Please upload an offer image.");
+        return;
       }
+
+      formData.append("image", data.image[0]);
   
-      // Submit the offer data
-      const response = await axios.post("/offer", data);
-      
-      if (response.status === 201) {
+      console.log("Submitting form...");
+      const res = await axios.post("/offer/addwithfile", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+  
+      console.log("Response:", res.data);
+  
+      if (res.status === 200 || res.status === 201) {
         toast.success("Offer created successfully!");
-        navigate("/offers"); // Redirect after success
+        setTimeout(() => {
+          navigate("/offers");
+        }, 1500);
+      } else {
+        toast.error("Offer creation failed");
       }
     } catch (error) {
-      console.error("Error submitting offer:", error);
-      toast.error(error.response?.data?.message || "Offer creation failed");
-    } finally {
-      setIsLoading(false);
+      console.error("Error submitting form:", error);
+      if (error.response) {
+        toast.error(error.response.data.detail || "Something went wrong.");
+      } else {
+        toast.error("Connection error. Please try again.");
+      }
     }
   };
-  
 
   return (
     <>
@@ -104,7 +142,7 @@ const OfferForm = () => {
       <div className="offer-form-container">
         <div className="offer-form-wrapper">
           <h2>Create New Offer</h2>
-          
+          <div className="form-content-scroll">
           <form onSubmit={handleSubmit(onSubmit)} className="offer-form">
             <div className="form-group">
               <label htmlFor="title">Offer Title</label>
@@ -153,8 +191,6 @@ const OfferForm = () => {
                 {errors.endDate && <p className="error-message">{errors.endDate.message}</p>}
               </div>
             </div>
-
-            {/* New Fields - Active, Discount, Min Order */}
             <div className="form-group checkbox-group">
               <input type="checkbox" id="active" {...register('active')} />
               <label htmlFor="active">Is Active?</label>
@@ -179,12 +215,31 @@ const OfferForm = () => {
                 />
               </div>
             </div>
-
             <div className="form-group">
-              <label htmlFor="image">Upload Image</label>
-              <input type="file" id="image" onChange={handleImageUpload} />
-            </div>
+              <label htmlFor="image">Upload Offer Image</label>
+              <input
+                type="file"
+                accept="image/*"
+                name="image"
+                {...register("image", { required: "Offer image is required" })}
+                onChange={(e) => {
+                  handleChange(e); 
+                  setPreviewImage(e.target.files[0]);
+                }}
+                className={errors.image ? "input-error" : ""}
+              />
 
+              {/* Image Preview */}
+              {previewImage && (
+                <div className="file-indicator">
+                  <img
+                    src={URL.createObjectURL(previewImage)}
+                    alt="Offer Preview"
+                    className="preview-image"
+                  />
+                </div>
+              )}
+            </div>
             <div className="form-group">
               <label htmlFor="locationId">Restaurant</label>
               <select
@@ -210,13 +265,11 @@ const OfferForm = () => {
               />
               {errors.foodType && <p className="error-message">{errors.foodType.message}</p>}
             </div>
-
-            
-
             <button type="submit" className="submit-button" disabled={isLoading}>
               {isLoading ? 'Processing...' : 'Create Offer'}
             </button>
           </form>
+          </div>
         </div>
         <ToastContainer position="top-right" autoClose={3000} />
       </div>
@@ -225,3 +278,4 @@ const OfferForm = () => {
 };
 
 export default OfferForm;
+

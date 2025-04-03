@@ -230,13 +230,14 @@ const onSubmit = async (data) => {
       </div>
       
       <div className="auth-right">
-        <div className="auth-form-container">
+        {/* <div className="auth-form-container"> */}
+        <div className="auth-form-container scrollable-form">
           <div className="glow-effect"></div>
           <h2>Sign Up</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
              {/* First Name */}
             <div className="form-group">
-              <label htmlFor="firstname">First Name</label>
+              {/* <label htmlFor="firstname">First Name</label> */}
               <input
                 type="text"
                 id="firstname"
@@ -257,7 +258,7 @@ const onSubmit = async (data) => {
             </div>
             {/* Last Name */}
             <div className="form-group">
-              <label htmlFor="lastname">Last Name</label>
+              {/* <label htmlFor="lastname">Last Name</label> */}
               <input
                 type="text"
                 id="lastname"
@@ -278,7 +279,7 @@ const onSubmit = async (data) => {
             {/* Gender */}
             
             <div className="form-group">
-              <label htmlFor="gender">Gender</label>
+              {/* <label htmlFor="gender">Gender</label> */}
               <select 
                 {...register("gender", { required: "Please select your gender" })}
                 className={errors.gender ? "input-error" : ""}
@@ -295,7 +296,7 @@ const onSubmit = async (data) => {
             </div>
             {/* Contact Number */}
             <div className="form-group">
-              <label htmlFor="contact">Contact Number</label>
+              {/* <label htmlFor="contact">Contact Number</label> */}
               <input
                 type="text"
                 id="contact"
@@ -316,7 +317,7 @@ const onSubmit = async (data) => {
             </div>
             {/* Age */}
             <div className="form-group">
-              <label htmlFor="age">Age</label>
+              {/* <label htmlFor="age">Age</label> */}
               <input
                 type="number"
                 placeholder="Enter your age"
@@ -338,9 +339,10 @@ const onSubmit = async (data) => {
               />
               {errors.age && <p className="error-message">{errors.age.message}</p>}
             </div>
+            
             {/* Profile Picture */}
             <div className="form-group">
-              <label htmlFor="profilePic">Profile Picture</label>
+              {/* <label htmlFor="profilePic">Profile Picture</label> */}
               <input
                 type="file"
                 accept="image/*"
@@ -368,7 +370,7 @@ const onSubmit = async (data) => {
             </div>
             {/* Status */}
             <div className="form-group">
-              <label htmlFor="status">Status</label>
+              {/* <label htmlFor="status">Status</label> */}
               <input
                 type="text"
                 id="status"
@@ -380,7 +382,7 @@ const onSubmit = async (data) => {
             </div>
             {/* Email */}
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              {/* <label htmlFor="email">Email</label> */}
               <input
                 type="email"
                 id="email"
@@ -398,7 +400,7 @@ const onSubmit = async (data) => {
             </div>
             {/* Password */}
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              {/* <label htmlFor="password">Password</label> */}
               <div className="password-input-wrapper">
                 <input
                   type={showPassword ? "text" : "password"}
@@ -429,7 +431,7 @@ const onSubmit = async (data) => {
             </div>
             {/* Confirm Password */}
             <div className="form-group">
-              <label htmlFor="confirm_password">Confirm Password</label>
+              {/* <label htmlFor="confirm_password">Confirm Password</label> */}
               <div className="password-input-wrapper">
                 <input
                   type={showConfirmPassword ? "text" : "password"}
@@ -453,7 +455,7 @@ const onSubmit = async (data) => {
             </div>
             {/* Role Select */}
             <div className="form-group">
-              <label htmlFor="role">Role</label>
+              {/* <label htmlFor="role">Role</label> */}
               <select 
                 id="role" 
                 {...register("role", { required: "Please select a role" })}
@@ -482,6 +484,7 @@ const onSubmit = async (data) => {
             <button type="submit" className="auth-button">Sign Up</button>
           </form>
         </div>
+        {/* </div> */}
       </div>
       <ToastContainer position="top-right" autoClose={3000} />
     </div>

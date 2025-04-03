@@ -5,15 +5,13 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/css/LocationForm.css'
-// import '../../assets/css/Theme.css'
+import Rsidebar from './Rsidebar';
 
 const RestaurantRegistration = () => {
   const navigate = useNavigate();
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
   const [areas, setAreas] = useState([]);
-  // const [selectedState, setSelectedState] = useState('');
-  // const [selectedCity, setSelectedCity] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
 
@@ -56,13 +54,9 @@ const RestaurantRegistration = () => {
     }
   });
   
-  // Watch for changes in state and city selections
   const watchState = watch('stateId');
   const watchCity = watch('cityId');
   
- 
-  
-  // Get current location
   const getCurrentLocation = () => {
     if (navigator.geolocation) {
       setIsLoading(true);
@@ -86,16 +80,13 @@ const RestaurantRegistration = () => {
   
   const onSubmit = async (data) => {
     try {
-      // Add user ID from localStorage
       data.userId = localStorage.getItem('id');
       
       setIsLoading(true);
       const response = await axios.post('/location', data);
-      //data.roleId=
       if (response.status === 201) {
         toast.success('Restaurant registered successfully!');
         setTimeout(() => {
-          // navigate('/dashboard');
         }, 2000);
       }
     } catch (error) {
@@ -107,11 +98,15 @@ const RestaurantRegistration = () => {
   };
   
   return (
+    <>
+    
+    <Rsidebar></Rsidebar>
     <div className="restaurant-register-container">
       <div className="restaurant-form-wrapper">
         <div className="glow-effect"></div>
         <h2>Register Your Restaurant</h2>
         
+        <div className="form-content-scroll">
         <form onSubmit={handleSubmit(onSubmit)} className="restaurant-form">
           <div className="form-group">
             <label htmlFor="title">Restaurant Name</label>
@@ -225,8 +220,6 @@ const RestaurantRegistration = () => {
                 {...register("cityId", { required: "City is required" })}
                 className={errors.cityId ? "input-error" : ""}
                 onChange={(e) => getAreaByCityId(e.target.value)}
-                // onChange={(e) => getAreaByCityId(e.target.value)}
-                // di sabled={!selectedState}
               >
                 <option value="">Select City</option>     
                 {cities && cities.map((city) => (
@@ -241,7 +234,6 @@ const RestaurantRegistration = () => {
             <select
               id="areaId"
               {...register("areaId")}
-              // disabled={!selectedCity}
             >
               <option value="">Select Area (Optional)</option>
               {areas?.map((area) => (
@@ -318,9 +310,11 @@ const RestaurantRegistration = () => {
             {isLoading ? 'Processing...' : 'Register Restaurant'}
           </button>
         </form>
+        </div>
       </div>
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
+    </>
   );
 };
 

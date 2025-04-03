@@ -1,20 +1,23 @@
 /* Hero Component CSS */
 
+.pizza {
+  height: 100px;
+}
 .hero-box {
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
     width: 100%;
-    min-height: 95vh;
+    min-height: 80vh;
     top: 0;
-    background-image: url(../images/Biriyani.png);
+    background-image: url(../images/9c573097-6e66-4a2b-85b7-cd3a0495bc64.jpg);
   }
   
-  .padding-y {
+  /* .padding-y {
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
+  } */
   
   .hero-text-wrapper {
     display: flex;
@@ -33,12 +36,14 @@
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 0.5rem;
+    color: black;
   }
   
   .hero-subtitle-text {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
     max-width: 36rem;
+    color: rgba(0, 0, 0, 0.5);
   }
 
   .hero-buttons {
@@ -61,8 +66,10 @@
 
   .hero-text-link {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
+    /* background-color: var(--primary-color); */
+    background-color: rgb(217, 105, 85);
+    /* color: rgb(242, 62, 12); */
+    color: black;
     padding: 0.75rem 1.5rem;
     border-radius: 0.25rem;
     text-decoration: none;
@@ -122,7 +129,7 @@
     height: 600px;
     background-color: var(--primary-hover);
     border-radius: 50%;
-    transform: translate(50%, 50%); /* This creates the quarter circle effect */
+    transform: translate(50%, 50%); 
     z-index: -1;
   }
   

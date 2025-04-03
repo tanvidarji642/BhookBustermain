@@ -5,7 +5,6 @@ const Rnavbar = () => {
   const [restaurantName, setRestaurantName] = useState('');
   
   useEffect(() => {
-    // Retrieve restaurant name from localStorage on component mount
     const storedRestaurantName = localStorage.getItem('restaurantName');
     if (storedRestaurantName) {
       setRestaurantName(storedRestaurantName);
@@ -30,14 +29,25 @@ const Rnavbar = () => {
         </div>
         
         {/* Right side navigation items */}
-        <div className="navbar-buttons">
+        {/* <div className="navbar-buttons">
           <Link to="/register" className="nav-button register-button">
             Register
           </Link>
           <Link to="/login" className="nav-button login-button">
             Login
           </Link>
+        </div> */}
+
+
+        <div className="navbar-buttons">
+          <Link to="/rsignup" className="nav-button register-button">
+            Register
+          </Link>
+          <Link to="/rlogin" className="nav-button login-button">
+            Login
+          </Link>
         </div>
+
       </div>
     </nav>
   );

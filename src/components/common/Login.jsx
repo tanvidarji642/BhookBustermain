@@ -68,7 +68,7 @@ const Login = ({ toggleForm }) => {
           <h2>Login</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              {/* <label htmlFor="email">Email</label> */}
               <input
                 type="email"
                 id="email"
@@ -87,7 +87,7 @@ const Login = ({ toggleForm }) => {
             </div>
             
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              {/* <label htmlFor="password">Password</label> */}
               <div className="password-input-wrapper">
                 <input
                   type={showPassword ? "text" : "password"}

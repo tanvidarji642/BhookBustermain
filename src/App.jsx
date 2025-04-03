@@ -28,6 +28,7 @@ import HomePage from "./components/common/HomePage";
 import AboutPage from "./components/common/AboutPage";
 import FoodPage from "./components/frontpages/FoodPage";
 import OffersPage from "./components/frontpages/OffersPage";
+import ViewOffers from "./components/Restuarant/ViewOffer";
 function App() {
   axios.defaults.baseURL = "http://localhost:8000";
 
@@ -36,17 +37,27 @@ function App() {
       <div className="layout-fixed sidebar-expand-lg bg-body-tertiary sidebar-open app-loaded">
         <div className="app-wrapper">
           <Routes>  
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/rlogin" element={<Rlogin />} />
+          <Route path="/rsignup" element={<Rsignup />} />
+
+          <Route path="/Rhero" element={<ResHero />} />
+
           <Route path="/food/:category" element={<FoodPage />} /> 
           <Route path="/offers" element={<OffersPage />} /> 
-            <Route path="/" element={<LandingPage />} />
             <Route path="/partnerwithus" element={<PartnerWithus />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
+            
             <Route path="/add-restaurant" element={<LocationForm />} />
             {/* <Route path="/addoffer" element={<AddOffer />} /> */}
             <Route path='/add-offer' element={<Offer />} />
             <Route path='/herores' element={<ResHero />} />
-            <Route path ='/rdashboard' element={<Rdashboard />} />
+            <Route path ='/rdashboard' element={<Rdashboard />} >
+                
+            </Route>
+            <Route path="view-offers" element={<ViewOffers />} />
 
             <Route path="/home" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
@@ -57,8 +68,6 @@ function App() {
               </Route>
 
               <Route path="/restaurant" element={<Rsidebar />}>
-                <Route path="rlogin" element={<Rlogin />} />
-                <Route path="rsignup" element={<Rsignup />} />
               </Route>
               
               <Route path="/admin" element={<Adminsidebar />}>
