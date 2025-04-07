@@ -125,7 +125,7 @@ const ViewOffer = () => {
                   <tr key={offer._id} className={!offer.active ? 'inactive-offer' : ''}>
                     <td className="offer-image-cell">
                       <img 
-                        src={offer.OfferImage} 
+                        src={offer.image} 
                         alt={offer.title} 
                         className="offer-thumbnail" 
                         onError={(e) => {
@@ -135,7 +135,7 @@ const ViewOffer = () => {
                       />
                     </td>
                     <td>{offer.title}</td>
-                    <td>{offer.Category}</td>
+                    <td>{offer.foodType}</td>
                     <td>{offer.discountPercentage}%</td>
                     <td>
                       {formatDate(offer.startDate)} - {formatDate(offer.endDate)}

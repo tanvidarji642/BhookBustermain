@@ -4,6 +4,7 @@ import "./assets/css/adminlte.css";
 import "./assets/css/adminlte.min.css";
 import "./assets/css/Auth.css";
 import './App.css'
+import { useEffect } from 'react';
 
 import { UserSidebar } from "./components/layouts/UserSidebar";
 import Login from "./components/common/Login";
@@ -29,7 +30,21 @@ import AboutPage from "./components/common/AboutPage";
 import FoodPage from "./components/frontpages/FoodPage";
 import OffersPage from "./components/frontpages/OffersPage";
 import ViewOffers from "./components/Restuarant/ViewOffer";
+import ViewSingleOffer from './components/Restuarant/ViewSingleOffer';
+
+// import Adminsidebar from './components/admin/Adminsidebar';
+
+
+import AdminDashboard from './components/admin/AdminDashboard';
+
 function App() {
+  useEffect(() => {
+    // Apply saved theme on app load
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.body.classList.add(savedTheme === 'dark' ? 'dark-theme' : 'light-theme');
+  }, []);
+
   axios.defaults.baseURL = "http://localhost:8000";
 
   return (
@@ -58,9 +73,13 @@ function App() {
                 
             </Route>
             <Route path="view-offers" element={<ViewOffers />} />
+            <Route path="singleoffer" element={<ViewSingleOffer />} />
 
             <Route path="/home" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+
+            <Route path ='/admin' element={<AdminDashboard />} />
+            {/* <Route path ='/admin' element={<Adminsidebar />} /> */}
             
             <Route element={<PrivateRoutes />}>
               <Route path="/user" element={<UserSidebar />}>
