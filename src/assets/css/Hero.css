@@ -252,7 +252,7 @@ body {
 /* Buttons */
 button {
   background-color: var(--primary-color);
-  color: var(--text-color);
+  /* color: var(--text-color); */
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
@@ -779,6 +779,10 @@ button:hover {
 .app-buttons img:hover {
   opacity: 0.8;
   transform: scale(1.05);
+}
+
+.text-main{
+  text-align: center;
 }
 
 /* Responsive */

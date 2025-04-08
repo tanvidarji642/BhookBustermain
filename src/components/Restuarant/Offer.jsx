@@ -755,6 +755,21 @@ const OfferForm = () => {
               </div>
 
               <div className="form-group">
+              <label htmlFor="locationId">Restaurant</label>
+              <select
+                id="locationId"
+                {...register('locationId', { required: 'Restaurant is required' })}
+                className={errors.locationId ? 'input-error' : ''}
+              >
+                <option value="">Select Restaurant</option>
+                {restaurants.map(restaurant => (
+                  <option key={restaurant._id} value={restaurant._id}>{restaurant.title}</option>
+                ))}
+              </select>
+              {errors.locationId && <p className="error-message">{errors.locationId.message}</p>}
+            </div>
+
+              <div className="form-group">
                 <label htmlFor="image">Upload Offer Image</label>
                 <input
                   type="file"
@@ -836,6 +851,25 @@ const OfferForm = () => {
                   {...register('minOrderAmount', { min: 0 })}
                 />
               </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="foodType">Food Type</label>
+               <select
+                id="foodType"
+                {...register('foodType', { required: 'Food type is required' })}
+                className={errors.foodType ? 'input-error' : ''}
+              >
+                <option value="">Select Food Type</option>
+                <option value="veg">Vegetarian - Salad</option>
+                <option value="non-veg">Non-Vegetarian - Chicken Curry</option>
+                <option value="vegan">Vegan - Tofu Stir Fry</option>
+                <option value="gluten-free">Gluten-Free - Quinoa Bowl</option>
+                <option value="pasta">Pasta - Alfredo</option>
+                <option value="burger">Burger - Cheese Burger</option>
+                <option value="pizza">Pizza - Margherita</option>
+              </select>
+              {errors.foodType && <p className="error-message">{errors.foodType.message}</p>}
             </div>
 
             <button type="submit" className="submit-button" disabled={isLoading}>

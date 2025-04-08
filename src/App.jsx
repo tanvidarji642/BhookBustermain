@@ -36,6 +36,7 @@ import ViewSingleOffer from './components/Restuarant/ViewSingleOffer';
 
 
 import AdminDashboard from './components/admin/AdminDashboard';
+import RestaurantOffers from "./components/frontpages/RestaurantOffers";
 
 function App() {
   useEffect(() => {
@@ -52,6 +53,9 @@ function App() {
       <div className="layout-fixed sidebar-expand-lg bg-body-tertiary sidebar-open app-loaded">
         <div className="app-wrapper">
           <Routes>  
+
+          <Route path="/restaurant/:id/offers" element={<RestaurantOffers />} />
+
           <Route path="/" element={<LandingPage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
