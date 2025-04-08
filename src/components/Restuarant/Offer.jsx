@@ -766,12 +766,7 @@ const OfferForm = () => {
                 {previewImage && <img src={previewImage} alt="Offer Preview" className="preview-image" />}
               </div>
 
-              <button type="submit" className="submit-button" disabled={isLoading}>
-                {isLoading ? "Processing..." : "Create Offer"}
-              </button>
-            </form>
-          </div>
-        </div>
+        
 
         {/* Display Offer Images */}
         {/* <div className="offer-list">
@@ -792,7 +787,65 @@ const OfferForm = () => {
             ))
           )}
         </div> */}
+            <div className="form-row">
+               <div className="form-group">
+                 <label htmlFor="startDate">Start Date</label>
+                <input
+                  type="date"
+                  id="startDate"
+                  {...register('startDate', { required: 'Start date is required' })}
+                  className={errors.startDate ? 'input-error' : ''}
+                />
+                {errors.startDate && <p className="error-message">{errors.startDate.message}</p>}
+              </div>
+              
+              <div className="form-group">
+                <label htmlFor="endDate">End Date</label>
+                <input
+                  type="date"
+                  id="endDate"
+                  {...register('endDate', { 
+                    required: 'End date is required',
+                    validate: value => new Date(value) > new Date(watch('startDate')) || 'End date must be after start date'
+                  })}
+                  className={errors.endDate ? 'input-error' : ''}
+                />
+                {errors.endDate && <p className="error-message">{errors.endDate.message}</p>}
+                </div>
+              </div>
+            <div className="form-group checkbox-group">
+              <input type="checkbox" id="active" {...register('active')} />
+              <label htmlFor="active">Is Active?</label>
+            </div>
 
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="discountPercentage">Discount (%)</label>
+                <input
+                  type="number"
+                  id="discountPercentage"
+                  {...register('discountPercentage', { min: 0, max: 100 })}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="minOrderAmount">Min Order Amount</label>
+                <input
+                  type="number"
+                  id="minOrderAmount"
+                  {...register('minOrderAmount', { min: 0 })}
+                />
+              </div>
+            </div>
+
+            <button type="submit" className="submit-button" disabled={isLoading}>
+                {isLoading ? "Processing..." : "Create Offer"}
+              </button>
+            </form>
+          </div>
+        </div>
+            
+        
         <ToastContainer position="top-right" autoClose={3000} />
       </div>
     </>

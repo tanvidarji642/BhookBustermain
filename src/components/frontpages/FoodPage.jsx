@@ -66,7 +66,7 @@ const FoodPage = () => {
                 <p className="offer-minOrder">Min Order: ₹{offer.minOrderAmount}</p>
                 <button className="order-button">Now</button>
               </div>
-            </div>
+            </div>    
           ))}
         </div>
       ) : (
