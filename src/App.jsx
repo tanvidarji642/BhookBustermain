@@ -37,6 +37,9 @@ import ViewSingleOffer from './components/Restuarant/ViewSingleOffer';
 
 import AdminDashboard from './components/admin/AdminDashboard';
 import RestaurantOffers from "./components/frontpages/RestaurantOffers";
+import AllRestaurants from "./components/admin/AllRestaurants";
+import AdminAllOffers from "./components/admin/AdminAllOffers";
+import AdminAllUsers from "./components/admin/AdminAllUsers";
 
 function App() {
   useEffect(() => {
@@ -84,6 +87,9 @@ function App() {
 
             <Route path ='/admin' element={<AdminDashboard />} />
             {/* <Route path ='/admin' element={<Adminsidebar />} /> */}
+            <Route path="/restaurants" element={<AllRestaurants />} />
+            <Route path="/AllOfers" element={<AdminAllOffers />} />
+            <Route path="/users" element={<AdminAllUsers />} />
             
             <Route element={<PrivateRoutes />}>
               <Route path="/user" element={<UserSidebar />}>

@@ -1,0 +1,174 @@
+/* Container for the table */
+.table-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    overflow-x: auto;
+    min-height: 100vh;
+  }
+  
+  /* Title styling */
+  .table-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f2937; /* dark gray */
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Custom styled table */
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #0b0b0b;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table headers */
+  .custom-table thead {
+    background-color: #4f46e5; 
+    color: #141414;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  
+  /* Header and cell padding */
+  .custom-table th,
+  .custom-table td {
+    padding: 12px 16px;
+    border: 1px solid #161617; /* light border */
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  /* Zebra striping for rows */
+  .custom-table tbody tr:nth-child(even) {
+    background-color: #141414; /* light gray row */
+  }
+  
+  /* Hover effect */
+  .custom-table tbody tr:hover {
+    background-color: #080808; /* indigo-100 */
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* Responsive text */
+  .custom-table td {
+    word-break: break-word;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+
+  .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Modal Background */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Box */
+  .modal-content {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.3s ease-in-out;
+  }
+  
+  .modal-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #181717;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+  }
+  
+  /* Form Styling */
+  .modal-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modal-form input {
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.2s ease;
+    color: rgb(222, 214, 214);
+  }
+  
+  .modal-form input:focus {
+    border-color: #007bff;
+  }
+  
+  /* Buttons */
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn-save {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .btn-cancel {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

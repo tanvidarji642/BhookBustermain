@@ -94,7 +94,7 @@ const ViewOffer = () => {
       <div className="offer-list-container">
         <div className="offer-list-header">
           <h2>All Offers</h2>
-          <Link to="/admin/offers/add" className="add-offer-button">
+          <Link to="/add-offer" className="add-offer-button">
             Add New Offer
           </Link>
         </div>

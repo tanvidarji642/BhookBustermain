@@ -868,6 +868,7 @@ const OfferForm = () => {
                 <option value="pasta">Pasta - Alfredo</option>
                 <option value="burger">Burger - Cheese Burger</option>
                 <option value="pizza">Pizza - Margherita</option>
+                <option value="pizza">Biryani - Margherita</option>
               </select>
               {errors.foodType && <p className="error-message">{errors.foodType.message}</p>}
             </div>
