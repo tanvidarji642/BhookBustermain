@@ -31,6 +31,23 @@
   margin-top: 10px;
 }
 
+.offer-details h3 {
+  font-size: 1.2em;
+  /* margin: 10px 0; */
+  color: black;
+}
+
+.offer-details p {
+  font-size: 0.9em;
+  margin: 5px 0;
+  color: #555;
+}
+
+.offer-minOrder {
+  font-size: 0.9em;
+  color: #666;
+}
+
 .offer-discount {
   color: #e44d26;
   font-weight: bold;

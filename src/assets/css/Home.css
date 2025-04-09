@@ -18,7 +18,8 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     text-align: center;
     padding: 80px 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    /* background: linear-gradient(135deg, var(--primary-color), var(--primary-hover)); */
+    background-color: var(--primary-hover);
     color: var(--secondary-color);
     border-radius: 12px;
     box-shadow: var(--shadow);
@@ -61,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 .search-btn {
     padding: 12px 25px;
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: var(--text-color);
     font-weight: bold;
     border-radius: 8px;
     transition: var(--transition);
@@ -134,24 +135,40 @@ h1, h2, h3, h4, h5, h6 {
 
 .offer-content {
     padding: 20px;
+    color: black;
+}
+
+.offer-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.offer-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: black;
 }
 
 .view-offer-btn {
     display: inline-block;
     padding: 10px 15px;
-    background: var(--primary-color);
-    color: #fff;
+    background: var(--text-color);
+    color: var(--primary-hover);
     border-radius: 5px;
     transition: var(--transition);
+    text-decoration: none;
 }
 
 .view-offer-btn:hover {
     background: var(--primary-hover);
+    color: white;
+    text-decoration: none;
 }
 
 /* Call to Action */
 .cta-section {
-    background: var(--primary-color);
+    background: var(--primary-hover);
     color: var(--secondary-color);
     text-align: center;
     padding: 60px 20px;
@@ -162,14 +179,20 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px;
 } */
 
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
 .primary-btn {
     /* margin-bottom: 200px; */
     padding: 12px 25px;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    background-color: var(--text-color);
+    color: var(--primary-hover);
     font-weight: bold;
     border-radius: 8px;
     transition: var(--transition);
+    text-decoration: none;
 }
 
 /* .btnPrimary {
@@ -181,6 +204,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--primary-hover);
     color: var(--secondary-color);
     transform: scale(1.08);
+    text-decoration: none;
 }
 
 .footer {

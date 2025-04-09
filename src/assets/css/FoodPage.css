@@ -15,14 +15,14 @@
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  background-color: #f0f0f0;
+  background-color: var(--background-color);
   padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .back-button:hover {
-  background-color: #e0e0e0;
+  background-color: var(--background-color);
 }
 
 .food-offers-grid {
@@ -62,7 +62,7 @@
 }
 
 .tag {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--background-color);
   padding: 3px 8px;
   border-radius: 15px;
   font-size: 0.8em;
@@ -75,17 +75,17 @@
 
 .offer-content h3 {
   margin-top: 0;
-  color: #333;
+  color: var(--text-color);
 }
 
 .offer-price {
   font-size: 1.2em;
   font-weight: bold;
-  color: #e53935;
+  color: var(--primary-hover);
 }
 
 .offer-description {
-  color: #666;
+  color: #f6eded;
   margin-bottom: 15px;
 }
 
@@ -103,23 +103,23 @@
   transition: background-color 0.3s ease;
 }
 
-.order-button {
+/* .order-button {
   background-color: #4caf50;
   color: white;
-}
+} */
 
-.details-button {
+/* .details-button {
   background-color: #2196f3;
   color: white;
-}
+} */
 
-.order-button:hover {
+/* .order-button:hover {
   background-color: #45a049;
-}
+} */
 
-.details-button:hover {
-  background-color: #1976d2;
-}
+/* .details-button:hover {
+  background-color: #f7c319;
+} */
 
 .no-offers {
   text-align: center;

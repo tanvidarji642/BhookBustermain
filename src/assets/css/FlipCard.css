@@ -46,7 +46,7 @@
 
 .flip-card-back {
   transform: rotateY(180deg);
-  background-color: #f9fafb;
+  background-color: var();
 }
 
 .flip-card-front strong,
@@ -57,7 +57,7 @@
 }
 
 .flip-card-back p {
-  color: #4b5563;
+  color: var(--text-color);
   font-size: 0.95rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -66,8 +66,8 @@
 .flip-card-back a {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #2563eb;
-  color: white;
+  background-color: var(--primary-hover);;
+  color: var(--secondary-color);
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
@@ -75,6 +75,6 @@
 }
 
 .flip-card-back a:hover {
-  background-color: #1e40af;
+  background-color: var(--primary-hover);;
 }
 
