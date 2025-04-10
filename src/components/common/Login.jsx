@@ -38,7 +38,7 @@ const Login = ({ toggleForm }) => {
 
         // Redirect based on role
         if (res.data.user.role.name === "USER") {
-          navigate("/restaurant");
+          navigate("/home");
         } else if (res.data.user.role.name === "RESTAURANT") {
           navigate("/rdashboard");
         } else if (res.data.user.role.name === "ADMIN") {

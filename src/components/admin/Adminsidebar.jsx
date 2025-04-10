@@ -26,12 +26,12 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           </Link>
         </li>
         <li className='sidebar-list-item'>
-          <Link to="/allrestaurants">
+          <Link to="/admin/restaurants">
             <BsFillBuildingFill className='icon' /> All Restaurants
           </Link>
         </li>
         <li className='sidebar-list-item'>
-          <Link to="/alloffers">
+          <Link to="/admin/alloffers">
             <BsTagsFill className='icon' /> All Offers
           </Link>
         </li>

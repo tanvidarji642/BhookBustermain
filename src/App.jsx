@@ -1,5 +1,5 @@
 import { useState } from "react";   
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import "./assets/css/adminlte.css";
 import "./assets/css/adminlte.min.css";
 import "./assets/css/Auth.css";
@@ -11,6 +11,7 @@ import Login from "./components/common/Login";
 import Signup from "./components/common/Signup";
 import PrivateRoutes from "./components/hooks/PrivateRoutes";
 import RestaurantPrivateRoutes from "./components/hooks/RestaurantPrivateRoutes";
+import AdminPrivateRoutes from "./components/hooks/AdminPrivateRoutes";
 
 import Rsidebar from "./components/Restuarant/Rsidebar";
 import Adminsidebar from "./components/admin/Adminsidebar";
@@ -42,7 +43,7 @@ import AllRestaurants from "./components/admin/AllRestaurants";
 import AdminAllOffers from "./components/admin/AdminAllOffers";
 import AdminAllUsers from "./components/admin/AdminAllUsers";
 import ResetPassword from "./components/common/ResetPassword";
-// import ResetPassword from "./components/common/ResetPassword";
+import AdminHome from "./components/admin/AdminHome";
 
 function App() {
   useEffect(() => {
@@ -59,30 +60,24 @@ function App() {
       <div className="layout-fixed sidebar-expand-lg bg-body-tertiary sidebar-open app-loaded">
         <div className="app-wrapper">
           <Routes>  
-          <Route path="/resetpassword/:token" element={<ResetPassword />} />
-          
-          <Route path="/allrestaurants" element={<AllRestaurants />} />
-          <Route path="/alloffers" element={<AdminAllOffers />} />
-          <Route path="/allusers" element={<AdminAllUsers />} />
-
-
-          <Route path="/restaurant/:id/offers" element={<RestaurantOffers />} />
-
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-
-          <Route path="/rlogin" element={<Rlogin />} />
-          <Route path="/rsignup" element={<Rsignup />} />
-
-          <Route path="/Rhero" element={<ResHero />} />
-
-          <Route path="/food/:category" element={<FoodPage />} /> 
-          <Route path="/offers" element={<OffersPage />} /> 
-            <Route path="/partnerwithus" element={<PartnerWithus />} />
             
+            {/* Public Routes */}
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/resetpassword/:token" element={<ResetPassword />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/food/:category" element={<FoodPage />} />
+            <Route path="/offers" element={<OffersPage />} />
+            <Route path="/restaurant/:id/offers" element={<RestaurantOffers />} />
+            <Route path="/partnerwithus" element={<PartnerWithus />} />
 
+            {/* Restaurant Public Routes */}
+            <Route path="/rlogin" element={<Rlogin />} />
+            <Route path="/rsignup" element={<Rsignup />} />
+            <Route path="/Rhero" element={<ResHero />} />
+
+            {/* Restaurant Protected Routes */}
             <Route element={<RestaurantPrivateRoutes />}>
               <Route path="/rdashboard" element={<Rdashboard />} />
               <Route path="/add-restaurant" element={<LocationForm />} />
@@ -90,22 +85,30 @@ function App() {
               <Route path="/view-offers" element={<ViewOffers />} />
               <Route path="/singleoffer" element={<ViewSingleOffer />} />
             </Route>
-            <Route path="/admin" element={<AdminDashboard />}>
-              <Route path="admins" element={<Adminsidebar />} />
-                <Route path="alogin" element={<Alogin />} />
-                <Route path="asignup" element={<Signup />} />
-              </Route>
+
+            {/* Admin Routes */}
+            <Route element={<AdminPrivateRoutes />}>
+              <Route path="/admin" element={<AdminDashboard />}>
+              <Route path="adminsidebar" element={<Adminsidebar />} />
+                {/* <Route index element={<AdminHome />} /> */}
+                <Route path="dashboard" element={<AdminHome />} />
+                <Route path="restaurants" element={<AllRestaurants />} />
+                <Route path="offers" element={<AdminAllOffers />} />
+                <Route path="users" element={<AdminAllUsers />} />
+              </Route> 
+            </Route>
+
+            {/* User Protected Routes */}
             <Route element={<PrivateRoutes />}>
               <Route path="/home" element={<HomePage />} />
-              <Route path="/user" element={<UserSidebar />}>
-               
-              </Route>
-
-              <Route path="/restaurant" element={<Rsidebar />}>
-              </Route>
-              
-              
+              <Route path="/user" element={<UserSidebar />} />
+              <Route path="/restaurant" element={<Rsidebar />} />
             </Route>
+
+            {/* Catch all route */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="/admin/login" element={<Alogin />} />
+
           </Routes>
         </div>
       </div>

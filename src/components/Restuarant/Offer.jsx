@@ -853,7 +853,7 @@ const OfferForm = () => {
               </div>
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="foodType">Food Type</label>
                <select
                 id="foodType"
@@ -869,9 +869,23 @@ const OfferForm = () => {
                 <option value="burger">Burger - Cheese Burger</option>
                 <option value="pizza">Pizza - Margherita</option>
                 <option value="pizza">Biryani - Margherita</option>
+                <option value="pizza">Coffee - Cold Coffee</option>
               </select>
               {errors.foodType && <p className="error-message">{errors.foodType.message}</p>}
+            </div> */}
+
+            <div className="form-group">
+              <label htmlFor="foodType">Food Type</label>
+              <input
+                type="text"
+                id="foodType"
+                {...register('foodType', { required: 'Food type is required' })}
+                className={errors.foodType ? 'input-error' : ''}
+                placeholder="e.g. Vegetarian - Salad"
+              />
+              {errors.foodType && <p className="error-message">{errors.foodType.message}</p>}
             </div>
+
 
             <button type="submit" className="submit-button" disabled={isLoading}>
                 {isLoading ? "Processing..." : "Create Offer"}

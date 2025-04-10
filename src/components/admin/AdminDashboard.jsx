@@ -1,10 +1,10 @@
 import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 import '../../assets/css/ADashboard/Amain.css';
-import AdminHome from '../../components/admin/AdminHome';
 import Adminnav from '../../components/admin/Adminnav'
 import Adminsidebar from '../../components/admin/Adminsidebar'
 
-function App() {
+function AdminDashboard() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
 
   const OpenSidebar = () => {
@@ -15,9 +15,11 @@ function App() {
     <div className='grid-container'>
       <Adminnav OpenSidebar={OpenSidebar}/>
       <Adminsidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
-      <AdminHome />
+      <main className="main-container">
+        <Outlet />
+      </main>
     </div>
   )
 }
 
-export default App
+export default AdminDashboard
