@@ -1,21 +1,5 @@
 /* auth.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-/* 
-:root {
-  --primary-color: #f57927 ! important; 
-  --primary-hover: #fcc07b;
-  --secondary-color: #ffffff;
-  --text-color: #f3f3f3;
-  --input-bg: rgb(34, 17, 17);
-  --card-bg: rgb(15, 11, 11);
-  --light-text: hsl(0, 100%, 100%);
-  --border-color: rgba(255, 107, 0, 0.3);
-  --error-color: #ff4545;
-  --success-color: #28c76f;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  --glow: 0 0 20px rgba(243, 249, 250, 0.952);
-  --transition: all 0.3s ease;
-} */
 
 :root {
   --primary-color: #f54421;

@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import UserNavbar from '../../components/common/UserNavbar';
 import UserNavbar from '../layouts/UserNavbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/Home.css';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("id");
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
   // Sample featured offers data
   const featuredOffers = [
     {

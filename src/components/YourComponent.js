@@ -1,5 +1,5 @@
 import React from 'react';
-import { itemData } from '../../data';
+import { itemData } from '../data'; // Fixed import path
 
 const YourComponent = () => {
     return (

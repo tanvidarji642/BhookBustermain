@@ -10,6 +10,7 @@ import { UserSidebar } from "./components/layouts/UserSidebar";
 import Login from "./components/common/Login";
 import Signup from "./components/common/Signup";
 import PrivateRoutes from "./components/hooks/PrivateRoutes";
+import RestaurantPrivateRoutes from "./components/hooks/RestaurantPrivateRoutes";
 
 import Rsidebar from "./components/Restuarant/Rsidebar";
 import Adminsidebar from "./components/admin/Adminsidebar";
@@ -40,6 +41,8 @@ import RestaurantOffers from "./components/frontpages/RestaurantOffers";
 import AllRestaurants from "./components/admin/AllRestaurants";
 import AdminAllOffers from "./components/admin/AdminAllOffers";
 import AdminAllUsers from "./components/admin/AdminAllUsers";
+import ResetPassword from "./components/common/ResetPassword";
+// import ResetPassword from "./components/common/ResetPassword";
 
 function App() {
   useEffect(() => {
@@ -56,6 +59,12 @@ function App() {
       <div className="layout-fixed sidebar-expand-lg bg-body-tertiary sidebar-open app-loaded">
         <div className="app-wrapper">
           <Routes>  
+          <Route path="/resetpassword/:token" element={<ResetPassword />} />
+          
+          <Route path="/allrestaurants" element={<AllRestaurants />} />
+          <Route path="/alloffers" element={<AdminAllOffers />} />
+          <Route path="/allusers" element={<AdminAllUsers />} />
+
 
           <Route path="/restaurant/:id/offers" element={<RestaurantOffers />} />
 
@@ -72,26 +81,22 @@ function App() {
           <Route path="/offers" element={<OffersPage />} /> 
             <Route path="/partnerwithus" element={<PartnerWithus />} />
             
-            <Route path="/add-restaurant" element={<LocationForm />} />
-            {/* <Route path="/addoffer" element={<AddOffer />} /> */}
-            <Route path='/add-offer' element={<Offer />} />
-            <Route path='/herores' element={<ResHero />} />
-            <Route path ='/rdashboard' element={<Rdashboard />} >
-                
-            </Route>
-            <Route path="view-offers" element={<ViewOffers />} />
-            <Route path="singleoffer" element={<ViewSingleOffer />} />
-
-            <Route path="/home" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
 
-            <Route path ='/admin' element={<AdminDashboard />} />
-            {/* <Route path ='/admin' element={<Adminsidebar />} /> */}
-            <Route path="/restaurants" element={<AllRestaurants />} />
-            <Route path="/AllOfers" element={<AdminAllOffers />} />
-            <Route path="/users" element={<AdminAllUsers />} />
-            
+            <Route element={<RestaurantPrivateRoutes />}>
+              <Route path="/rdashboard" element={<Rdashboard />} />
+              <Route path="/add-restaurant" element={<LocationForm />} />
+              <Route path="/add-offer" element={<Offer />} />
+              <Route path="/view-offers" element={<ViewOffers />} />
+              <Route path="/singleoffer" element={<ViewSingleOffer />} />
+            </Route>
+            <Route path="/admin" element={<AdminDashboard />}>
+              <Route path="admins" element={<Adminsidebar />} />
+                <Route path="alogin" element={<Alogin />} />
+                <Route path="asignup" element={<Signup />} />
+              </Route>
             <Route element={<PrivateRoutes />}>
+              <Route path="/home" element={<HomePage />} />
               <Route path="/user" element={<UserSidebar />}>
                
               </Route>
@@ -99,10 +104,7 @@ function App() {
               <Route path="/restaurant" element={<Rsidebar />}>
               </Route>
               
-              <Route path="/admin" element={<Adminsidebar />}>
-                <Route path="alogin" element={<Alogin />} />
-                <Route path="asignup" element={<Signup />} />
-              </Route>
+              
             </Route>
           </Routes>
         </div>

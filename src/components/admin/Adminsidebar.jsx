@@ -7,6 +7,7 @@ import {
   BsPeopleFill,
   BsFillGearFill
 } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
   return (
@@ -20,29 +21,29 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
       <ul className='sidebar-list'>
         <li className='sidebar-list-item'>
-          <a href="/">
+          <Link to="/">
             <BsGrid1X2Fill className='icon' /> Dashboard
-          </a>
+          </Link>
         </li>
         <li className='sidebar-list-item'>
-          <a href="/restaurants">
+          <Link to="/allrestaurants">
             <BsFillBuildingFill className='icon' /> All Restaurants
-          </a>
+          </Link>
         </li>
         <li className='sidebar-list-item'>
-          <a href="/AllOfers">
+          <Link to="/alloffers">
             <BsTagsFill className='icon' /> All Offers
-          </a>
+          </Link>
         </li>
         <li className='sidebar-list-item'>
-          <a href="/users">
+          <Link to="/allusers">
             <BsPeopleFill className='icon' /> All Customers
-          </a>
+          </Link>
         </li>
         <li className='sidebar-list-item'>
-          <a href="/settings">
+          <Link to="/settings">
             <BsFillGearFill className='icon' /> Settings
-          </a>
+          </Link>
         </li>
       </ul>
     </aside>

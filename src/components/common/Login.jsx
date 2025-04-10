@@ -5,12 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 const Login = ({ toggleForm }) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [animating, setAnimating] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
 
   const { 
     register, 
@@ -20,38 +22,51 @@ const Login = ({ toggleForm }) => {
 
   const onSubmit = async (data) => {
     try {
-        const res = await axios.post("/user/login", data, {
-            headers: { 'Content-Type': 'application/json' }
-        });
+      const res = await axios.post("/user/login", data, {
+        headers: { 'Content-Type': 'application/json' }
+      });
 
-        console.log(res.data);
-        if (res.status === 200) {
-            toast.success('Logged in successfully!');
-            localStorage.setItem("id", res.data?.user._id || "");
-            localStorage.setItem("role", res.data.user.role?.name || "");
+      if (res.status === 200) {
+        toast.success('Logged in successfully!');
+        
+        // Store user data in localStorage
+        localStorage.setItem("id", res.data.user._id);
+        localStorage.setItem("role", res.data.user.role.name);
+        localStorage.setItem("profilePicPath", res.data.user.profilePicPath || "/assets/items/default-profile.png");
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userName", `${res.data.user.firstname} ${res.data.user.lastname}`);
 
-            if (res.data.user.role.name === "USER") {
-                navigate("/restaurant");
-            } else if (res.data.user.role.name === "RESTAURANT") {
-                navigate("/restaurant");
-            }
-        } else {
-            toast.error('Login failed');
-            console.log(err);
+        // Redirect based on role
+        if (res.data.user.role.name === "USER") {
+          navigate("/restaurant");
+        } else if (res.data.user.role.name === "RESTAURANT") {
+          navigate("/rdashboard");
+        } else if (res.data.user.role.name === "ADMIN") {
+          navigate("/admin");
         }
-
-        setTimeout(() => {
-            navigate('/');
-        }, 1500);  
-
+      }
     } catch (error) {
-        if (error.response && error.response.status === 422) {
-            toast.error('Invalid data. Please check your input.');
-        } else {
-            toast.error('Login failed');
-        }
+      if (error.response && error.response.status === 422) {
+        toast.error('Invalid email or password');
+      } else {
+        toast.error('Login failed. Please try again.');
+      }
     }
-};
+  };
+
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(`/user/forgotpassword?email=${encodeURIComponent(resetEmail)}`);
+      if (res.status === 200) {
+        toast.success('Password reset link sent to your email');
+        setShowForgotPassword(false);
+        setResetEmail('');
+      }
+    } catch (error) {
+      toast.error('Failed to send reset link. Please try again.');
+    }
+  };
 
   const handleSignupTransition = () => {
     setAnimating(true);
@@ -66,63 +81,90 @@ const Login = ({ toggleForm }) => {
         <div className="auth-form-container">
           <div className="glow-effect"></div>
           <h2>Login</h2>
-          <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
-            <div className="form-group">
-              {/* <label htmlFor="email">Email</label> */}
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                // {...register("email", { required: "Email is required" })}
-                {...register("email", { 
-                  required: "Email is required", 
-                  pattern: { 
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 
-                    message: "Invalid email address" 
-                  } 
-                })}
-                className={errors.email ? "input-error" : ""}
-              />
-              {errors.email && <p className="error-message">{errors.email.message}</p>}
-            </div>
-            
-            <div className="form-group">
-              {/* <label htmlFor="password">Password</label> */}
-              <div className="password-input-wrapper">
+          {!showForgotPassword ? (
+            <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
+              <div className="form-group">
                 <input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  placeholder="Enter your password"
-                  {...register("password", {
-                    required: "Password is required" 
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  {...register("email", { 
+                    required: "Email is required", 
+                    pattern: { 
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 
+                      message: "Invalid email address" 
+                    } 
                   })}
-                  className={errors.password ? "input-error" : ""}
+                  className={errors.email ? "input-error" : ""}
                 />
+                {errors.email && <p className="error-message">{errors.email.message}</p>}
+              </div>
+              
+              <div className="form-group">
+                <div className="password-input-wrapper">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    placeholder="Enter your password"
+                    {...register("password", {
+                      required: "Password is required" 
+                    })}
+                    className={errors.password ? "input-error" : ""}
+                  />
+                  <button 
+                    type="button" 
+                    className="toggle-password"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? "Hide" : "Show"}
+                  </button>
+                </div>
+                {errors.password && <p className="error-message">{errors.password.message}</p>}
+              </div>
+
+              <div className="form-options">
+                <div className="remember-me">
+                  <input 
+                    type="checkbox" 
+                    id="remember" 
+                    {...register("remember")} 
+                  />
+                  <label htmlFor="remember">Remember me</label>
+                </div>
                 <button 
                   type="button" 
-                  className="toggle-password"
-                  onClick={() => setShowPassword(!showPassword)}
+                  className="text-button"
+                  onClick={() => setShowForgotPassword(true)}
                 >
-                  {showPassword ? "Hide" : "Show"}
+                  Forgot Password?
                 </button>
               </div>
-              {errors.password && <p className="error-message">{errors.password.message}</p>}
-            </div>
-
-            <div className="form-options">
-              <div className="remember-me">
-                <input 
-                  type="checkbox" 
-                  id="remember" 
-                  {...register("remember")} 
+              
+              <button type="submit" className="auth-button">Login</button>
+            </form>
+          ) : (
+            <form onSubmit={handleForgotPassword} className="auth-form">
+              <div className="form-group">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={resetEmail}
+                  onChange={(e) => setResetEmail(e.target.value)}
+                  required
                 />
-                <label htmlFor="remember">Remember me</label>
               </div>
-              <a href="#" className="forgot-password">Forgot Password?</a>
-            </div>
-            
-            <button type="submit" className="auth-button">Login</button>
-          </form>
+              <div className="form-options">
+                <button 
+                  type="button" 
+                  className="text-button"
+                  onClick={() => setShowForgotPassword(false)}
+                >
+                  Back to Login
+                </button>
+              </div>
+              <button type="submit" className="auth-button">Send Reset Link</button>
+            </form>
+          )}
         </div>
       </div>
       

@@ -2,15 +2,14 @@
 
 .user-table-container {
     padding: 20px;
-    background-color: #fff;
+    background-color: #1a1a1a;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px;
   }
   
   .user-table-container h2 {
+    color: #ffffff;
     margin-bottom: 20px;
-    color: #333;
     font-size: 24px;
   }
   

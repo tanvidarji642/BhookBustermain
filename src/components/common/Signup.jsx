@@ -66,6 +66,12 @@ const Signup = () => {
     }
 };
 
+const roleMap = {
+  user: "67dfd3b9a20a39f439b6a98d",
+  admin: "67dfd370a20a39f439b6a98c",
+  manager: "67dfd3d3a20a39f439b6a98e"
+};
+
 
 
 //   const onSubmit = async (data) => {
@@ -146,9 +152,13 @@ const onSubmit = async (data) => {
       formData.append("password", data.password);
       formData.append("confirm_password", data.confirm_password);
       formData.append("age", data.age);
+      // formData.append("role", data.role);
+      // formData.append("role_id", "67dfd3b9a20a39f439b6a98d"); 
       formData.append("role", data.role);
-      formData.append("role_id", "67bebf0677d0c62099b63e3e"); // Add role_id
-      formData.append("status", data.status === "true" || data.status === true);
+      formData.append("role_id", roleMap[data.role]);
+      formData.append("status", data.status?.toLowerCase() === "true");
+
+      // formData.append("status", data.status === "true" || data.status === true);
       
       // Check if profilePicPath exists and has files
       if (!data.profilePicPath || data.profilePicPath.length === 0) {
@@ -456,7 +466,7 @@ const onSubmit = async (data) => {
             {/* Role Select */}
             <div className="form-group">
               {/* <label htmlFor="role">Role</label> */}
-              <select 
+              {/* <select 
                 id="role" 
                 {...register("role", { required: "Please select a role" })}
                 className={errors.role ? "input-error" : ""}
@@ -464,7 +474,21 @@ const onSubmit = async (data) => {
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
                 <option value="manager">Manager</option>
+              </select> */}
+              <select 
+                id="role" 
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+                {...register("role", { required: "Please select a role" })}
+                className={errors.role ? "input-error" : ""}
+              >
+                <option value="">Select Role</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+                <option value="manager">Manager</option>
               </select>
+
               {errors.role && <p className="error-message">{errors.role.message}</p>}
             </div>
             

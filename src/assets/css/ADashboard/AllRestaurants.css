@@ -1,174 +1,435 @@
-/* Container for the table */
-.table-container {
-    padding: 20px;
-    background-color: #f5f5f5;
-    overflow-x: auto;
-    min-height: 100vh;
-  }
-  
-  /* Title styling */
-  .table-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #1f2937; /* dark gray */
-    margin-bottom: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  /* Custom styled table */
-  .custom-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #0b0b0b;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Table headers */
-  .custom-table thead {
-    background-color: #4f46e5; 
-    color: #141414;
-    text-transform: uppercase;
-    font-size: 14px;
-  }
-  
-  /* Header and cell padding */
-  .custom-table th,
-  .custom-table td {
-    padding: 12px 16px;
-    border: 1px solid #161617; /* light border */
-    text-align: left;
-    font-size: 14px;
-  }
-  
-  /* Zebra striping for rows */
-  .custom-table tbody tr:nth-child(even) {
-    background-color: #141414; /* light gray row */
-  }
-  
-  /* Hover effect */
-  .custom-table tbody tr:hover {
-    background-color: #080808; /* indigo-100 */
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  /* Responsive text */
-  .custom-table td {
-    word-break: break-word;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
+/* AllRestaurants.css */
 
-  .close-btn {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  /* Modal Background */
+.restaurants-container {
+  padding: 20px;
+  background-color: #1e1e2d;
+  color: #e4e6ef;
+  min-height: 100vh;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.table-title {
+  font-size: 1.75rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 10px;
+}
+
+.view-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  background-color: #2b2b40;
+  color: #a2a3b7;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-toggle-btn:hover {
+  background-color: #323248;
+  color: #ffffff;
+}
+
+.view-toggle-btn.active {
+  background-color: #1a73e8;
+  color: #ffffff;
+}
+
+/* Table View Styles */
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #2b2b40;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.custom-table thead tr {
+  background-color: #1e1e2d;
+}
+
+.custom-table th {
+  padding: 15px 20px;
+  text-align: left;
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 1px solid #323248;
+  white-space: nowrap;
+}
+
+.custom-table td {
+  padding: 12px 20px;
+  border-bottom: 1px solid #323248;
+  color: #cdcdde;
+  vertical-align: middle;
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none; 
+}
+
+.custom-table tr:hover {
+  background-color: #323248;
+}
+
+.description-cell {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions-cell {
+  white-space: nowrap;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #1e1e2d;
+  color: #cdcdde;
+}
+
+.view-btn {
+  background-color: #1e1e2d;
+  color: #3699ff;
+}
+
+.view-btn:hover {
+  background-color: #3699ff;
+  color: #ffffff;
+}
+
+.edit-btn {
+  background-color: #1e1e2d;
+  color: #ffa800;
+}
+
+.edit-btn:hover {
+  background-color: #ffa800;
+  color: #ffffff;
+}
+
+.delete-btn {
+  background-color: #1e1e2d;
+  color: #f64e60;
+}
+
+.delete-btn:hover {
+  background-color: #f64e60;
+  color: #ffffff;
+}
+
+/* Grid View Styles */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.grid-card {
+  background-color: #2b2b40;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+  padding: 15px 20px;
+  background-color: #1e1e2d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #323248;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.category-badge {
+  background-color: #3699ff;
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.card-body {
+  padding: 15px 20px;
+}
+
+.description {
+  margin-bottom: 15px;
+  color: #b5b5c3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.info-label {
+  min-width: 80px;
+  font-weight: 600;
+  color: #a2a3b7;
+}
+
+.info-value {
+  color: #cdcdde;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.status-badge.active {
+  background-color: #0bb783;
+  color: #ffffff;
+}
+
+.status-badge.inactive {
+  background-color: #f64e60;
+  color: #ffffff;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-top: 1px solid #323248;
+}
+
+.card-footer .action-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+  margin: 0 5px;
+}
+
+/* Modal Styles */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  /* Modal Box */
-  .modal-content {
-    background-color: #fff;
-    width: 90%;
-    max-width: 600px;
-    border-radius: 15px;
-    padding: 30px;
-    position: relative;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    animation: fadeInUp 0.3s ease-in-out;
-  }
-  
-  .modal-title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #181717;
-  }
-  
-  /* Close Button */
-  .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 24px;
-    color: #888;
-    cursor: pointer;
-  }
-  
-  /* Form Styling */
-  .modal-form .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .modal-form input {
-    padding: 10px 14px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    transition: 0.2s ease;
-    color: rgb(222, 214, 214);
-  }
-  
-  .modal-form input:focus {
-    border-color: #007bff;
-  }
-  
-  /* Buttons */
-  .modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .btn-save {
-    background-color: #28a745;
-    color: #fff;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .btn-cancel {
-    background-color: #dc3545;
-    color: #fff;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  /* Animation */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #1e1e2d;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: #a2a3b7;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #ffffff;
+}
+
+.modal-title {
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid #323248;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.modal-form {
+  padding: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-field.full-width {
+  flex: 0 0 100%;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: #a2a3b7;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #323248;
+  background-color: #2b2b40;
+  color: #cdcdde;
+  font-size: 1rem;
+}
+
+.form-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #3699ff;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 20px;
+  border-top: 1px solid #323248;
+}
+
+.btn-save,
+.btn-primary {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3699ff;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-save:hover,
+.btn-primary:hover {
+  background-color: #187de4;
+}
+
+.btn-cancel {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #323248;
+  color: #cdcdde;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #3a3a57;
+}
+
+/* View Modal Styles */
+.view-modal .view-content {
+  padding: 20px;
+}
+
+.view-section {
+  margin-bottom: 25px;
+}
+
+.view-section h4 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #323248;
+}
+
+.view-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.view-label {
+  min-width: 120px;
+  font-weight: 600;
+  color: #a2a3b7;
+}
+
+.view-value {
+  color: #cdcdde;
+}
+
+.view-description {
+  color: #cdcdde;
+  line-height: 1.6;
+}
