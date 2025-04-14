@@ -45,6 +45,9 @@ import AdminAllUsers from "./components/admin/AdminAllUsers";
 import ResetPassword from "./components/common/ResetPassword";
 import AdminHome from "./components/admin/AdminHome";
 
+
+import ResHome from "./components/Restuarant/ResHome";
+
 function App() {
   useEffect(() => {
     // Apply saved theme on app load
@@ -61,6 +64,7 @@ function App() {
         <div className="app-wrapper">
           <Routes>  
             
+            <Route path="/reshome" element={<ResHome />} />
             {/* Public Routes */}
             <Route path="/" element={<LandingPage />} />
             <Route path="/signup" element={<Signup />} />
@@ -91,7 +95,7 @@ function App() {
               <Route path="/admin" element={<AdminDashboard />}>
               <Route path="adminsidebar" element={<Adminsidebar />} />
                 {/* <Route index element={<AdminHome />} /> */}
-                <Route path="dashboard" element={<AdminHome />} />
+                <Route path="adashboard" element={<AdminHome />} />
                 <Route path="restaurants" element={<AllRestaurants />} />
                 <Route path="offers" element={<AdminAllOffers />} />
                 <Route path="users" element={<AdminAllUsers />} />

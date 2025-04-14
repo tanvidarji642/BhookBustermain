@@ -800,7 +800,7 @@ function AllRestaurants() {
   return (
     <div className="restaurants-container dark-theme">
       <div className="header-container">
-        <h2 className="table-title">All Locations</h2>
+        <h2 className="table-title">Restaurant</h2>
         <div className="view-toggle">
           <button 
             className={`view-toggle-btn ${viewMode === 'list' ? 'active' : ''}`} 

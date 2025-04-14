@@ -160,12 +160,20 @@ const Rsidebar = () => {
   return (
     <>
       <Rnav />
+
+     
       
       <div className={`restaurant-sidebar ${isOpen ? 'expanded' : 'collapsed'}`}>
+        
         <div className="sidebar-brand">
           <Coffee size={24} />
-          <h3 className={`brand-text ${!isOpen && 'hidden'}`}>Resto Admin</h3>
+          <h3 className={`brand-text ${!isOpen && 'hidden'}`}>Resturant Dash</h3>
         </div>
+
+        {/* <div className="sidebar-brand">
+          <Coffee size={24} />
+          <h3 className={`brand-text ${!isOpen && 'hidden'}`}>Resto Admin</h3>
+        </div> */}
 
         <div className="sidebar-content">
           <div className="sidebar-section">

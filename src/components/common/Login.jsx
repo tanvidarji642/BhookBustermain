@@ -38,13 +38,16 @@ const Login = ({ toggleForm }) => {
 
         // Redirect based on role
         if (res.data.user.role.name === "USER") {
-          navigate("/home");
+          navigate("/");
         } else if (res.data.user.role.name === "RESTAURANT") {
           navigate("/rdashboard");
         } else if (res.data.user.role.name === "ADMIN") {
           navigate("/admin");
         }
       }
+      setTimeout(() => {
+        navigate('/home');
+      }, 1500);
     } catch (error) {
       if (error.response && error.response.status === 422) {
         toast.error('Invalid email or password');

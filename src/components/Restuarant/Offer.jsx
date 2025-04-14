@@ -853,7 +853,7 @@ const OfferForm = () => {
               </div>
             </div>
 
-            {/* <div className="form-group">
+            <div className="form-group">
               <label htmlFor="foodType">Food Type</label>
                <select
                 id="foodType"
@@ -861,20 +861,26 @@ const OfferForm = () => {
                 className={errors.foodType ? 'input-error' : ''}
               >
                 <option value="">Select Food Type</option>
-                <option value="veg">Vegetarian - Salad</option>
-                <option value="non-veg">Non-Vegetarian - Chicken Curry</option>
-                <option value="vegan">Vegan - Tofu Stir Fry</option>
-                <option value="gluten-free">Gluten-Free - Quinoa Bowl</option>
-                <option value="pasta">Pasta - Alfredo</option>
-                <option value="burger">Burger - Cheese Burger</option>
-                <option value="pizza">Pizza - Margherita</option>
-                <option value="pizza">Biryani - Margherita</option>
-                <option value="pizza">Coffee - Cold Coffee</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Burger">Burger</option>
+                <option value="Biryani">Biryani</option>
+                <option value="Shake">Shake</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Cholle">Cholle</option>
+                <option value="Cake">Cake</option>
+                <option value="Dosa">Dosa</option>
+                <option value="Khichdi">Khichdi</option>
+                <option value="Poori">Poori</option>
+                <option value="Tea">Tea</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Salad">Salad</option>
+                <option value="Cutlet">Cutlet</option>
+                <option value="Noodles">Noodles</option>
               </select>
               {errors.foodType && <p className="error-message">{errors.foodType.message}</p>}
-            </div> */}
+            </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="foodType">Food Type</label>
               <input
                 type="text"
@@ -884,7 +890,7 @@ const OfferForm = () => {
                 placeholder="e.g. Vegetarian - Salad"
               />
               {errors.foodType && <p className="error-message">{errors.foodType.message}</p>}
-            </div>
+            </div> */}
 
 
             <button type="submit" className="submit-button" disabled={isLoading}>

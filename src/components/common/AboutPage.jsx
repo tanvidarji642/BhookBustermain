@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import UserNavbar from '../layouts/UserNavbar';
 import '../../assets/css/About.css';
 
 const AboutPage = () => {
+  // Carousel logic
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const carouselImages = [
+    // "src/assets/images/spaghetti.jpg",
+    // "src/assets/images/Biriyani.png",
+    // "src/assets/images/pizza.jpg"
+
+    "src/assets/images/login-background.jpg",
+    "src/assets/images/resturants-food.jpg",
+    "src/assets/images/crop-plate-with-salad.jpg",
+    "src/assets/images/2148700402.jpg",
+  
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
+  };
+
+  useEffect(() => {
+    const slideInterval = setInterval(nextSlide, 5000);
+    return () => clearInterval(slideInterval);
+  }, []);
   // Team members data
   const teamMembers = [
     {
@@ -31,6 +57,31 @@ const AboutPage = () => {
   return (
     <div className="about-page">
       <UserNavbar />
+
+      {/* Carousel Section */}
+      <div className="carousel-container">
+        <div 
+          className="carousel-slide" 
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {carouselImages.map((image, index) => (
+            <div key={index} className="carousel-item">
+              <img 
+                src={image} 
+                alt={`Slide ${index + 1}`}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "src/assets/images/spaghetti.jpg";
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="carousel-controls">
+          <button className="carousel-btn" onClick={prevSlide}>&#10094;</button>
+          <button className="carousel-btn" onClick={nextSlide}>&#10095;</button>
+        </div>
+      </div>
       
       <div className="about-hero">
         <div className="about-hero-content">

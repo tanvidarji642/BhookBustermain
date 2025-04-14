@@ -17,7 +17,7 @@ const Hero = () => {
           </div>
         </article>
         {/* <article className="hero-stats-wrapper"> */}
-          
+            
           {/* <div className="border bg-neutralLineWhite" style={{width: '4.25rem', height: '0', marginTop: '2.5rem', transform: 'rotate(90deg)'}} /> */}
           {/* <div className="text-center"> */}
             {/* <h2 className="hero-card-stat-text">120+</h2>

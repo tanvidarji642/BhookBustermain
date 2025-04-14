@@ -16,9 +16,9 @@ const Rnavbar = () => {
       <div className="navbar-container">
         {/* Left side logo/brand */}
         <div className="navbar-brand">
-          <Link to="/">
+          {/* <Link to="/">
             <img src="/assets/images/logo.png" alt="FoodApp" className="logo" />
-          </Link>
+          </Link> */}
         </div>
         
         {/* Center area - Restaurant Name */}

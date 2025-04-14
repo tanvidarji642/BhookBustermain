@@ -20,7 +20,8 @@ const ViewOffer = () => {
   const fetchOffers = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('/offers');
+      // const response = await axios.get('/offers');
+      const response = await axios.get('/offer/{location_id}/offers');
       console.log('Fetched offers:', response.data);
       setOffers(response.data);
       setError(null);
@@ -42,7 +43,7 @@ const ViewOffer = () => {
 
   const handleDelete = async (offerId) => {
     try {
-      await axios.delete(`/offer/${offerId}`);
+      await axios.delete(`/offer/${offerId}/offers`);
       // Remove deleted offer from state
       setOffers(offers.filter(offer => offer._id !== offerId));
       setConfirmDelete(null);

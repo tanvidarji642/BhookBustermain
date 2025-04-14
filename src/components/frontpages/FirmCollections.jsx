@@ -6,19 +6,6 @@ const FlipCard = ({ frontContent, backContent }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    // <div
-    //   className="flip-card"
-    //   onClick={() => setIsFlipped((prev) => !prev)}
-    // >
-    //   <div className={`flip-card-inner ${isFlipped ? "flipped" : ""}`}>
-    //     <div className="flip-card-front">
-    //       {frontContent}
-    //     </div>
-    //     <div className="flip-card-back">
-    //       {backContent}
-    //     </div>
-    //   </div>
-    // </div>
     <div
       className={`flip-card ${isFlipped ? "flipped" : ""}`}
       onClick={() => setIsFlipped((prev) => !prev)}

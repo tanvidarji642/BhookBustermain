@@ -21,7 +21,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
       <ul className='sidebar-list'>
         <li className='sidebar-list-item'>
-          <Link to="/">
+          <Link to="/admin/adashboard">
             <BsGrid1X2Fill className='icon' /> Dashboard
           </Link>
         </li>
@@ -31,12 +31,12 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           </Link>
         </li>
         <li className='sidebar-list-item'>
-          <Link to="/admin/alloffers">
+          <Link to="/admin/offers">
             <BsTagsFill className='icon' /> All Offers
           </Link>
         </li>
         <li className='sidebar-list-item'>
-          <Link to="/allusers">
+          <Link to="/admin/users">
             <BsPeopleFill className='icon' /> All Customers
           </Link>
         </li>
