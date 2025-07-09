@@ -1,6 +1,6 @@
 import React from "react";
 import { FaInfoCircle } from "react-icons/fa";
-import '../../assets/css/partnerwithus.css'; // Import your CSS file
+import '../../assets/css/PartnerwithUs.css';
 import images from '../../assets/images/spaghetti.jpg';
 import { useNavigate } from "react-router-dom";
 
