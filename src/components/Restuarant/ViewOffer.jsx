@@ -20,8 +20,7 @@ const ViewOffer = () => {
   const fetchOffers = async () => {
     try {
       setLoading(true);
-      // const response = await axios.get('/offers');
-      const response = await axios.get('/offer/{location_id}/offers');
+      const response = await axios.get('/offers');
       console.log('Fetched offers:', response.data);
       setOffers(response.data);
       setError(null);
@@ -150,6 +149,7 @@ const ViewOffer = () => {
                       <Link to={`/admin/offers/view/${offer._id}`} className="action-button view">
                         <Eye size={18} />
                       </Link>
+
                       <Link to={`/admin/offers/edit/${offer._id}`} className="action-button edit">
                         <Edit size={18} />
                       </Link>

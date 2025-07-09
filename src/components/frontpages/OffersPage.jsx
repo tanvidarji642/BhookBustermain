@@ -44,7 +44,7 @@ const OffersPage = () => {
                 <p className="offer-description">{offer.description}</p>
                 <p className="offer-discount">Discount: {offer.discountPercentage}%</p>
                 <p className="offer-minOrder">Min Order: ₹{offer.minOrderAmount}</p>
-                <button className="order-button">Order Now</button>
+                {/* <button className="order-button">View Details</button> */}
               </div>
             </div>
           ))}

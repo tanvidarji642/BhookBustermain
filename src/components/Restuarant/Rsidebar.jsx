@@ -196,12 +196,12 @@ const Rsidebar = () => {
             </Link>
           </div>
 
-          <div className="sidebar-section">
+          {/* <div className="sidebar-section">
             <Link to="" className="section-link">
               <Eye size={20} />
               <span className={`section-text ${!isOpen && 'hidden'}`}>View Restaurant</span>
             </Link>
-          </div>
+          </div> */}
 
           <div className="sidebar-divider"></div>
           
@@ -237,12 +237,12 @@ const Rsidebar = () => {
             </button>
           </div>
           
-          <div className="sidebar-section logout">
+          {/* <div className="sidebar-section logout">
             <Link to="/logout" className="section-link">
               <LogOut size={20} />
               <span className={`section-text ${!isOpen && 'hidden'}`}>Logout</span>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

@@ -135,19 +135,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .offer-content {
     padding: 20px;
-    color: black;
+    color: white;
 }
 
 .offer-content h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: black;
+    color: white;
 }
 
 .offer-content h4 {
     font-size: 1.2rem;
     margin-bottom: 15px;
-    color: black;
+    color: white;
 }
 
 .view-offer-btn {

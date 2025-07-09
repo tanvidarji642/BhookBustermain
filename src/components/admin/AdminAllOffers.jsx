@@ -957,7 +957,7 @@ console.lof(offer)
           <th>Food Type</th>
           <th>Location ID</th>
           <th>Image</th>
-          <th>Actions</th>
+          {/* <th>Actions</th> */}
         </tr>
       </thead>
       <tbody>
@@ -979,7 +979,7 @@ console.lof(offer)
             <td>
               <img src={offer.image} alt="Offer" className="offer-img" />
             </td>
-            <td className="action-buttons">
+            {/* <td className="action-buttons">
               <button 
                 className="action-btn view-btn" 
                 onClick={() => handleViewClick(offer)}
@@ -1004,7 +1004,7 @@ console.lof(offer)
               >
                 <FaTrash />
               </button>
-            </td>
+            </td> */}
           </tr>
         ))}
       </tbody>
@@ -1052,7 +1052,7 @@ console.lof(offer)
               </div>
             </div>
             
-            <div className="card-actions">
+            {/* <div className="card-actions">
               <button 
                 className="card-btn view-btn"
                 onClick={() => handleViewClick(offer)}
@@ -1077,7 +1077,7 @@ console.lof(offer)
                 <FaTrash />
                 <span>Delete</span>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       ))}

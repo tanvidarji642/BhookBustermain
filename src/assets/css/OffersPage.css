@@ -34,13 +34,15 @@
 .offer-details h3 {
   font-size: 1.2em;
   /* margin: 10px 0; */
-  color: black;
+  /* color: black; */
+  color: aliceblue;
 }
 
 .offer-details p {
   font-size: 0.9em;
   margin: 5px 0;
-  color: #555;
+  /* color: #555; */
+  color: aliceblue;
 }
 
 .offer-minOrder {
@@ -64,4 +66,8 @@
 
 .order-button:hover {
   background-color: #d84315;
+}
+
+.offer-description {
+  color: white;
 }

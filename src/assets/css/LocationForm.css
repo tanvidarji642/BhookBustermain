@@ -25,14 +25,15 @@
   align-items: flex-start; 
   min-height: 100vh;
   padding: 2rem;
-  background-color: var(--secondary-color);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                    url('/assets/images/restaurant-bg.jpg');
+  /* background-color: var(--secondary-color); */
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                    url('/assets/images/restaurant-bg.jpg'); */
   background-size: cover;
   background-position: center;
   color: var(--text-color);
   transition: var(--transition);
   margin-left: 250px; 
+  margin-top: 10px;
   width: calc(100% - 250px);
 }
 

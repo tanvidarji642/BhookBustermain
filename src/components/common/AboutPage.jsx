@@ -6,15 +6,14 @@ const AboutPage = () => {
   // Carousel logic
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselImages = [
-    // "src/assets/images/spaghetti.jpg",
-    // "src/assets/images/Biriyani.png",
-    // "src/assets/images/pizza.jpg"
-
-    "src/assets/images/login-background.jpg",
-    "src/assets/images/resturants-food.jpg",
-    "src/assets/images/crop-plate-with-salad.jpg",
-    "src/assets/images/2148700402.jpg",
-  
+    "src/assets/images/aboute/login-background.jpg",
+    "src/assets/images/aboute/cookies-1835414_1280.jpg",
+    "src/assets/images/aboute/italian-cuisine-2378729_1280.jpg",
+    "src/assets/images/aboute/pancakes-2291908_1280.jpg",
+    "src/assets/images/aboute/pizza-3010062_1280.jpg",
+    "src/assets/images/aboute/resturants-food.jpg",
+    "src/assets/images/aboute/crop-plate-with-salad.jpg",
+    "src/assets/images/aboute/milk-5267300_1280.jpg"
   ];
 
   const nextSlide = () => {
@@ -29,6 +28,7 @@ const AboutPage = () => {
     const slideInterval = setInterval(nextSlide, 5000);
     return () => clearInterval(slideInterval);
   }, []);
+
   // Team members data
   const teamMembers = [
     {
@@ -36,21 +36,21 @@ const AboutPage = () => {
       name: "Sarah Johnson",
       role: "Founder & CEO",
       bio: "Sarah founded Pocket Buddy with a vision to bridge the gap between restaurants and food enthusiasts.",
-      imageUrl: "src/assets/images/Biriyani.png"
+      imageUrl: "/assets/images/Biriyani.png"
     },
     {
       id: 2,
       name: "Michael Chen",
       role: "CTO",
       bio: "Michael oversees all technical aspects of Pocket Buddy, ensuring a seamless user experience.",
-      imageUrl: "src/assets/images/Biriyani.png"
+      imageUrl: "/assets/images/Biriyani.png"
     },
     {
       id: 3,
       name: "Emily Patel",
       role: "Head of Marketing",
       bio: "Emily leads our marketing initiatives to connect more users with amazing restaurant offers.",
-      imageUrl: "src/assets/images/Biriyani.png"
+      imageUrl: "/assets/images/Biriyani.png"
     }
   ];
 
@@ -71,7 +71,7 @@ const AboutPage = () => {
                 alt={`Slide ${index + 1}`}
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = "src/assets/images/spaghetti.jpg";
+                  e.target.src = "/assets/images/spaghetti.jpg";
                 }}
               />
             </div>
@@ -105,10 +105,10 @@ const AboutPage = () => {
             </p>
           </div>
           <div className="about-image">
-            <img src="src/assets/images/spaghetti.jpg" alt="Bhookh Buster Story" 
+            <img src="/assets/images/spaghetti.jpg" alt="Bhookh Buster Story" 
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "src/assets/images/spaghetti.jpg";
+                e.target.src = "/assets/images/spaghetti.jpg";
               }}
             />
           </div>
@@ -118,10 +118,10 @@ const AboutPage = () => {
       <div className="mission-section">
         <div className="mission-container">
           <div className="mission-image">
-            <img src="src/assets/images/spaghetti.jpg" alt="Our Mission" 
+            <img src="/assets/images/spaghetti.jpg" alt="Our Mission" 
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "src/assets/images/spaghetti.jpg";
+                e.target.src = "/assets/images/spaghetti.jpg";
               }}
             />
           </div>
@@ -152,7 +152,7 @@ const AboutPage = () => {
                 <img src={member.imageUrl} alt={member.name} 
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "src/assets/images/spaghetti.jpg";
+                    e.target.src = "/assets/images/spaghetti.jpg";
                   }}
                 />
               </div>
@@ -216,7 +216,7 @@ const AboutPage = () => {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-logo">
-            <img src="/assets/items/logo.png" alt="Bhookh Buster" />
+            <img src="src/assets/Items/logo.png" alt="Bhookh Buster" />
             <p>Finding you the best food deals since 2023.</p>
           </div>
           <div className="footer-links">
@@ -224,14 +224,13 @@ const AboutPage = () => {
             <ul>
               <li><a href="/">Home</a></li>
               <li><a href="/about">About Us</a></li>
-              <li><a href="/menu">Menu</a></li>
               <li><a href="/offers">Special Offers</a></li>
               <li><a href="/rdashboard">Partner with us</a></li>
             </ul>
           </div>
           <div className="footer-contact">
             <h3>Contact Us</h3>
-            <p>Email: info@pocketbuddy.com</p>
+            <p>Email: info@bhookhbuster.com</p>
             <p>Phone: +1 (123) 456-7890</p>
             <div className="social-icons">
               <a href="#" aria-label="Facebook"><i className="fab fa-facebook"></i></a>

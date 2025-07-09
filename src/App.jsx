@@ -76,6 +76,9 @@ function App() {
             <Route path="/restaurant/:id/offers" element={<RestaurantOffers />} />
             <Route path="/partnerwithus" element={<PartnerWithus />} />
 
+            <Route path="/admin/login" element={<Alogin />} />
+
+
             {/* Restaurant Public Routes */}
             <Route path="/rlogin" element={<Rlogin />} />
             <Route path="/rsignup" element={<Rsignup />} />
@@ -87,14 +90,18 @@ function App() {
               <Route path="/add-restaurant" element={<LocationForm />} />
               <Route path="/add-offer" element={<Offer />} />
               <Route path="/view-offers" element={<ViewOffers />} />
-              <Route path="/singleoffer" element={<ViewSingleOffer />} />
+              {/* <Route path="/admin/offers/view/:id" element={<ViewSingleOffer />} /> */}
+              {/* <Route path="/admin/offers/view/${offer._id}" element={<ViewSingleOffer />} /> */}
+              <Route path="/admin/offers/view/:id" element={<ViewSingleOffer />} />
+
+
             </Route>
 
             {/* Admin Routes */}
             <Route element={<AdminPrivateRoutes />}>
               <Route path="/admin" element={<AdminDashboard />}>
-              <Route path="adminsidebar" element={<Adminsidebar />} />
-                {/* <Route index element={<AdminHome />} /> */}
+                <Route path="adminsidebar" element={<Adminsidebar />} />
+                <Route index element={<AdminHome />} />
                 <Route path="adashboard" element={<AdminHome />} />
                 <Route path="restaurants" element={<AllRestaurants />} />
                 <Route path="offers" element={<AdminAllOffers />} />
@@ -111,7 +118,6 @@ function App() {
 
             {/* Catch all route */}
             <Route path="*" element={<Navigate to="/" replace />} />
-            <Route path="/admin/login" element={<Alogin />} />
 
           </Routes>
         </div>

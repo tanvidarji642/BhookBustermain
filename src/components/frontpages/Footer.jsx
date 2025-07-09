@@ -7,21 +7,18 @@ export const Footer = () => {
   <footer className="footer">
       <div className="footer-container">
         <div className="footer-logo">
-          <h2>Pocket Buddy</h2>
-            <p>© 2025 Pocket Buddy Limited</p>
+          <h2>Bhookh Buster</h2>
+            <p>© 2025 Buster Buster Limited</p>
         </div>
     
         <div className="footer-links">
           <div>
             <h3>Company</h3>
             <ul>
-              <li>About Us</li>
-              <li>Careers</li>
-              <li>Team</li>
-              <li>Pocket Plus</li>
-              <li>Pocket Market</li>
-              <li>Pocket Dine</li>
-              <li>Pocket Genie</li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/home">User Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/offers">Special Offers</a></li>
             </ul>
           </div>
     
@@ -29,7 +26,7 @@ export const Footer = () => {
              <h3>Contact Us</h3>
               <ul>
                 <li>Help & Support</li>
-                <li>Partner With Us</li>
+                <li><a href="/rdashboard">Partner with us</a></li>
                 <li>Ride With Us</li>
               </ul>
           </div>
@@ -68,10 +65,10 @@ export const Footer = () => {
   </div>
     
     <div className="footer-bottom">
-      <p>For a better experience, download the Pocket Buddy app now</p>
+      <p>For a better experience, download the Bhookh Buster app now</p>
       <div className="app-buttons">
-        <img src="/app-store.png" alt="App Store" />
-        <img src="/google-play.png" alt="Google Play" />
+        {/* <img src="/app-store.png" alt="App Store" />
+        <img src="/google-play.png" alt="Google Play" /> */}
       </div>
     </div>
   </footer>

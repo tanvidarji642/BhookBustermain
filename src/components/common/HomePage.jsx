@@ -50,12 +50,12 @@ const HomePage = () => {
         <div className="hero-content">
           <h1>Discover the Best Food Deals Around You</h1>
           <p>Bhookh Buster helps you find amazing restaurant offers and promotions in your area.</p>
-          <div className="search-container">
+          {/* <div className="search-container">
             <input type="text" placeholder="Search by location, cuisine, or restaurant name" />
             <button className="search-btn">Search</button>
-          </div>
+          </div> */}
           <div className="hero-buttons">
-            <Link to="/signup" className="btn primary-btn">Join Now</Link>
+            <Link to="/rsignup" className="btn primary-btn">Join Now</Link>
             {/* <Link to="/menu" className="btn secondary-btn">Browse Offers</Link> */}
           </div>
         </div>
@@ -105,7 +105,7 @@ const HomePage = () => {
                 <h4>{offer.offerTitle}</h4>
                 <p>{offer.description}</p>
                 <div className="offer-expiry">Valid until: {new Date(offer.expiryDate).toLocaleDateString()}</div>
-                <Link to={`/offer/${offer.id}`} className="btn view-offer-btn">View Details</Link>
+                {/* <Link to={`/offer/${offer.id}`} className="btn view-offer-btn">View Details</Link> */}
               </div>
             </div>
           ))}
@@ -126,22 +126,27 @@ const HomePage = () => {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-logo">
-            <img src="/assets/items/logo.png" alt="Bhookh Buster" />
+            <img src="src/assets/Items/logo.png" alt="Bhookh Buster" />
             <p>Finding you the best food deals since 2023.</p>
           </div>
           <div className="footer-links">
             <h3>Quick Links</h3>
             <ul>
-              <li><Link to="/">Home</Link></li>
+              {/* <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/menu">Menu</Link></li>
               <li><Link to="/offers">Special Offers</Link></li>
-              <li><Link to="/rdashboard">Partner with us</Link></li>
+              <li><Link to="/rdashboard">Partner with us</Link></li> */}
+              <li><a href="/">Deasbord</a></li>
+              <li><a href="/Home">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/offers">Special Offers</a></li>
+              <li><a href="/rdashboard">Partner with us</a></li>
             </ul>
           </div>
           <div className="footer-contact">
             <h3>Contact Us</h3>
-            <p>Email: info@pocketbuddy.com</p>
+            <p>Email: info@bhookhbuster.com</p>
             <p>Phone: +1 (123) 456-7890</p>
             <div className="social-icons">
               <a href="#" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
