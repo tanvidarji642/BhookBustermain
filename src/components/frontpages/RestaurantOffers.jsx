@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "../../assets/css/RestaurantOffers.css"; // 👈 Import the CSS
+import "../../assets/css/RestaurantOffers.css";
 
 const RestaurantOffers = () => {
   const { id } = useParams();
@@ -12,7 +12,7 @@ const RestaurantOffers = () => {
       try {
         const response = await fetch(`http://localhost:8000/offer/${id}/offers`);
         const data = await response.json();
-        setOffers(Array.isArray(data) ? data : []); // 👈 Ensures `.map()` won’t break
+        setOffers(Array.isArray(data) ? data : []); 
         setLoading(false);
       } catch (error) {
         console.error("Error fetching offers:", error);

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../assets/css/WhyChooseUs.css'; 
 
 export const WhyChooseUs = () => {
   return (

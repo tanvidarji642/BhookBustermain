@@ -1,4 +1,5 @@
 import React from "react";
+import '../../assets/css/Item.css';
 import { useNavigate } from "react-router-dom";
 
 const Item = () => {

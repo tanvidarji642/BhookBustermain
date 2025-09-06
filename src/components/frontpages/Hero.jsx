@@ -53,7 +53,7 @@
 // export default Hero;
 
 import { Link } from 'react-router-dom';
-import '../../assets/css/Hero.css'; 
+// import '../../assets/css/Hero.css'; 
 import pizzaImage from '../../assets/images/pizza2.png';
 
 const Hero = () => {

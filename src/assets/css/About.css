@@ -174,3 +174,199 @@
     box-shadow: var(--glow);
 }
 
+
+
+
+
+
+
+
+/* Default styles are for desktop (≥ 1024px) */
+
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 300px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* About Hero */
+.about-hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('/assets/images/spaghetti.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/* Grid Sections */
+.about-container,
+.mission-container,
+.team-grid,
+.values-grid,
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px;
+}
+
+.about-content,
+.mission-content,
+.about-image,
+.mission-image,
+.team-card,
+.value-card,
+.stat-item {
+  flex: 1 1 45%;
+}
+
+/* Team section grid */
+.team-grid,
+.values-grid {
+  justify-content: center;
+}
+
+.team-card,
+.value-card {
+  max-width: 300px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Footer */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 20px;
+}
+
+.footer-logo,
+.footer-links,
+.footer-contact {
+  flex: 1 1 30%;
+  margin-bottom: 20px;
+}
+
+/* ===== 📱 MOBILE DEVICES ===== */
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 200px;
+  }
+
+  .about-hero {
+    padding: 40px 10px;
+  }
+
+  .about-hero-content h1 {
+    font-size: 24px;
+  }
+
+  .about-hero-content p {
+    font-size: 14px;
+  }
+
+  .about-container,
+  .mission-container,
+  .stats-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .about-content,
+  .about-image,
+  .mission-content,
+  .mission-image {
+    flex: 1 1 100%;
+  }
+
+  .team-grid,
+  .values-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-card,
+  .value-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .stat-item {
+    flex: 1 1 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    max-width: 150px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding: 10px 20px;
+  }
+}
+
+/* ===== 🧾 TABLET DEVICES ===== */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .about-container,
+  .mission-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .about-content,
+  .about-image,
+  .mission-content,
+  .mission-image {
+    flex: 1 1 100%;
+  }
+
+  .team-grid,
+  .values-grid {
+    justify-content: space-around;
+  }
+
+  .team-card,
+  .value-card {
+    width: 45%;
+  }
+
+  .stat-item {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+
+  .footer-content {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .footer-logo,
+  .footer-links,
+  .footer-contact {
+    flex: 1 1 45%;
+    margin-bottom: 20px;
+  }
+}

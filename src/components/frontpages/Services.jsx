@@ -1,4 +1,5 @@
 import React from "react";
+import '../../assets/css/Services.css';
 
 const services = [
   { title: "BHOOK DEALS", discount: "60%", img: "🍔" },
